@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ai02_ai" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="AI" package="examples.chap05.ai02.ai" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="194.0" yPosition="49.0" width="261" height="163">
+      <Fields>
+        <Field name="state" type="State" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charIndex" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="commandsLister" type="CommandsLister" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="random" type="Random" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="RandomAI" package="examples.chap05.ai02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="23.0" yPosition="259.0" width="226" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="CommandsLister" package="examples.chap05.ai02.ai" visibility="public" generation="auto" xPosition="591.0" yPosition="7.0" width="442" height="80">
+      <Methods>
+        <Method name="listCommands" returnType="List&lt;Command&gt;" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="DefaultCommandsLister" package="examples.chap05.ai02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="508.0" yPosition="136.0" width="419" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="listCommands" returnType="List&lt;Command&gt;" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ExplorationAI" package="examples.chap05.ai02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="276.0" yPosition="259.0" width="244" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.ai.DefaultCommandsLister" target="examples.chap05.ai02.ai.CommandsLister"/>
+    <IsRelation name="is" source="examples.chap05.ai02.ai.ExplorationAI" target="examples.chap05.ai02.ai.AI"/>
+    <HasRelation name="commandsLister" source="examples.chap05.ai02.ai.AI" target="examples.chap05.ai02.ai.CommandsLister" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap05.ai02.ai.RandomAI" target="examples.chap05.ai02.ai.AI"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

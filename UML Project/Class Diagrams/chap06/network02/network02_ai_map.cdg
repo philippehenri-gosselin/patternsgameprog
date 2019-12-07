@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="network02_ai_map" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="DistanceMap" package="examples.chap06.network02.ai.map" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="-1.0" yPosition="2.0" width="336" height="144">
+      <Fields>
+        <Field name="width" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="height" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="weights" type="int[][]" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getWeight" returnType="int" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="Direction" name="direction"/>
+        </Method>
+        <Method name="setWeight" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="weight"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dijkstra" package="examples.chap06.network02.ai.map" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="50.0" yPosition="211.0" width="234" height="127">
+      <Fields>
+        <Field name="map" type="DistanceMap" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="queue" type="PriorityQueue&lt;Point&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addSink" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Point" package="examples.chap06.network02.ai.map" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="411.0" yPosition="202.0" width="346" height="144">
+      <Fields>
+        <Field name="x" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="weight" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Point" name="point"/>
+        </Method>
+        <Method name="transform" returnType="Point" visibility="public">
+          <Argument type="Direction" name="direction"/>
+          <Argument type="int" name="weight"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Comparable&lt;Point&gt;" package="examples.chap06.network02.ai" visibility="public" generation="disabled" xPosition="475.0" yPosition="12.0" width="219" height="80">
+      <Methods>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Point" name="point"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="queue" source="examples.chap06.network02.ai.map.Dijkstra" target="examples.chap06.network02.ai.map.Point" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.network02.ai.map.Point" target="examples.chap06.network02.ai.Comparable&lt;Point&gt;"/>
+    <UseRelation name="" source="examples.chap06.network02.ai.map.Dijkstra" target="examples.chap06.network02.ai.map.DistanceMap" sourceCardinality="" targetCardinality=""/>
+  </ClassDiagramRelations>
+</ClassDiagram>

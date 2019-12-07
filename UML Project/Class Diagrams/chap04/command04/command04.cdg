@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="command04" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Main" package="examples.chap04.command04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="9.0" yPosition="332.0" width="288" height="176">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="currentMode" type="GameMode" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gameModes" type="LinkedList&lt;GameMode&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="setGameMode" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="clearGameModes" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameMode" package="examples.chap04.command04" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="401.0" yPosition="293.0" width="291" height="225">
+      <Fields>
+        <Field name="parent" type="Main" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gui" type="GUIFacade" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGameMode" returnType="void" visibility="public">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="clearGameModes" returnType="void" visibility="public"/>
+        <Method name="init" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="handleInputs" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PlayGameMode" package="examples.chap04.command04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="40.0" yPosition="76.0" width="196" height="180">
+      <Fields>
+        <Field name="state" type="State" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="renderer" type="Renderer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="rules" type="Rules" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WelcomeGameMode" package="examples.chap04.command04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="255.0" yPosition="3.0" width="195" height="143">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MenuGameMode" package="" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="584.0" yPosition="200.0" width="179" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GameOverMode" package="examples.chap04.command04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="473.0" yPosition="40.0" width="206" height="148">
+      <Fields>
+        <Field name="msg" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap04.command04.GameOverMode" target="examples.chap04.command04.GameMode"/>
+    <IsRelation name="is" source="examples.chap04.command04.PlayGameMode" target="examples.chap04.command04.GameMode"/>
+    <HasRelation name="currentMode" source="examples.chap04.command04.Main" target="examples.chap04.command04.GameMode" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="MenuGameMode" target="examples.chap04.command04.GameMode"/>
+    <IsRelation name="is" source="examples.chap04.command04.WelcomeGameMode" target="examples.chap04.command04.GameMode"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="threads01_render" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="TileSet" package="examples.chap06.threads01.render" visibility="public" generation="auto" xPosition="83.0" yPosition="0.0" width="201" height="135">
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getImageFile" returnType="String" visibility="public"/>
+        <Method name="getTile" returnType="Tile" visibility="public">
+          <Argument type="Element" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="StaticTile" package="examples.chap06.threads01.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="0.0" yPosition="310.0" width="171" height="141">
+      <Fields>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AnimatedTile" package="examples.chap06.threads01.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="183.0" yPosition="310.0" width="183" height="160">
+      <Fields>
+        <Field name="tiles" type="List&lt;Tile&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="rate" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="addTile" returnType="void" visibility="public">
+          <Argument type="Tile" name="tile"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Tile" package="examples.chap06.threads01.render" visibility="public" generation="auto" xPosition="91.0" yPosition="162.0" width="185" height="107">
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Renderer" package="examples.chap06.threads01.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="354.0" yPosition="0.0" width="385" height="249">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelTileSet" type="TileSet" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsTileSet" type="TileSet" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="animations" type="HashMap&lt;LayerElement,Animation&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="begin"/>
+          <Argument type="long" name="time"/>
+          <Argument type="long" name="end"/>
+        </Method>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="StateObserver" package="" visibility="public" generation="disabled" xPosition="789.0" yPosition="0.0" width="176" height="56">
+      <Methods/>
+    </Interface>
+    <Class name="Animation" package="examples.chap06.threads01.render" visibility="public" gettersGeneration="enabled" settersGeneration="enabled" generation="auto" xPosition="376.0" yPosition="276.0" width="490" height="110">
+      <Fields>
+        <Field name="tile" type="Tile" visibility="protected" gettersGeneration="enabled" settersGeneration="enabled"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="LayerElement" name="element"/>
+          <Argument type="long" name="begin"/>
+          <Argument type="long" name="time"/>
+          <Argument type="long" name="end"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MobileAnimation" package="examples.chap06.threads01.render" visibility="public" gettersGeneration="enabled" settersGeneration="enabled" generation="auto" xPosition="376.0" yPosition="411.0" width="490" height="128">
+      <Fields>
+        <Field name="start" type="Point" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="dest" type="Point" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="LayerElement" name="element"/>
+          <Argument type="long" name="begin"/>
+          <Argument type="long" name="time"/>
+          <Argument type="long" name="end"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LayerElement" package="examples.chap06.threads01.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="759.0" yPosition="90.0" width="236" height="159">
+      <Fields>
+        <Field name="layer" type="Layer" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="index" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="other"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.render.AnimatedTile" target="examples.chap06.threads01.render.Tile"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.render.Renderer" target="StateObserver"/>
+    <HasRelation name="animations" source="examples.chap06.threads01.render.Renderer" target="examples.chap06.threads01.render.Animation" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.render.StaticTile" target="examples.chap06.threads01.render.Tile"/>
+    <UseRelation name="" source="examples.chap06.threads01.render.TileSet" target="examples.chap06.threads01.render.Tile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap06.threads01.render.MobileAnimation" target="examples.chap06.threads01.render.Animation"/>
+    <UseRelation name="" source="examples.chap06.threads01.render.Animation" target="examples.chap06.threads01.render.LayerElement" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tilesets" source="examples.chap06.threads01.render.Renderer" target="examples.chap06.threads01.render.TileSet" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="network03_mt" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="TaskManager" package="examples.chap06.network03.mt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="290.0" yPosition="1.0" width="283" height="347">
+      <Fields>
+        <Field name="producerTaskQueue" type="TaskQueue" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="consumerTaskQueue" type="TaskQueue" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="producerThreads" type="ProducerThread[]" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="consumerThreads" type="ConsumerThread[]" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="lock" type="ReentrantLock" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="launched" type="boolean" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="taskManager" type="TaskManager" visibility="private" isStatic="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getInstance" returnType="TaskManager" visibility="public" isStatic="true"/>
+        <Method name="addProducerTask" returnType="void" visibility="public">
+          <Argument type="Task" name="task"/>
+        </Method>
+        <Method name="addConsumerTask" returnType="void" visibility="public">
+          <Argument type="Task" name="task"/>
+        </Method>
+        <Method name="launch" returnType="void" visibility="public"/>
+        <Method name="join" returnType="void" visibility="public"/>
+        <Method name="terminate" returnType="void" visibility="public"/>
+        <Method name="takeProducerTask" returnType="Task" visibility="package"/>
+        <Method name="takeConsumerTask" returnType="Task" visibility="package"/>
+        <Method name="notifyProducerTaskDone" returnType="void" visibility="package"/>
+        <Method name="notifyConsumerTaskDone" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="ConsumerThread" package="examples.chap06.network03.mt" visibility="package" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="652.0" yPosition="1.0" width="217" height="93">
+      <Fields>
+        <Field name="manager" type="TaskManager" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Thread" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="675.0" yPosition="147.0" width="170" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ProducerThread" package="examples.chap06.network03.mt" visibility="package" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="652.0" yPosition="239.0" width="217" height="93">
+      <Fields>
+        <Field name="manager" type="TaskManager" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Task" package="examples.chap06.network03.mt" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="3.0" yPosition="299.0" width="214" height="112">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addTask" returnType="void" visibility="public">
+          <Argument type="Task" name="task"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="TaskQueue" package="examples.chap06.network03.mt" visibility="package" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="0.0" yPosition="1.0" width="221" height="263">
+      <Fields>
+        <Field name="lock" type="ReentrantLock" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="tasks" type="Task[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="index" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="size" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="queueIncreasing" type="Condition" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="queueDecreasing" type="Condition" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="taskDone" type="Condition" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="runningTasks" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Task" name="task"/>
+        </Method>
+        <Method name="take" returnType="Task" visibility="public"/>
+        <Method name="notifyTaskDone" returnType="void" visibility="public"/>
+        <Method name="waitAllDone" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap06.network03.mt.ConsumerThread" target="Thread"/>
+    <HasRelation name="consumerThreads" source="examples.chap06.network03.mt.TaskManager" target="examples.chap06.network03.mt.ConsumerThread" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="tasks" source="examples.chap06.network03.mt.TaskQueue" target="examples.chap06.network03.mt.Task" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation name="" source="examples.chap06.network03.mt.TaskManager" target="examples.chap06.network03.mt.Task" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap06.network03.mt.ProducerThread" target="Thread"/>
+    <HasRelation name="producerThreads" source="examples.chap06.network03.mt.TaskManager" target="examples.chap06.network03.mt.ProducerThread" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="taskQueue" source="examples.chap06.network03.mt.TaskManager" target="examples.chap06.network03.mt.TaskQueue" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

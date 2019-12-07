@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="threads01_sync" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="RulesThread" package="examples.chap06.threads01.sync" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="8.0" yPosition="87.0" width="357" height="280">
+      <Fields>
+        <Field name="rules" type="Rules" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="running" type="boolean" visibility="private" isTransient="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="observers" type="List&lt;RulesThreadObserver&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="rollback" type="boolean" visibility="private" isTransient="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="processRules" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="Consumer&lt;Rules&gt;" name="consumer"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="stopRunning" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="RulesThreadObserver" name="o"/>
+        </Method>
+        <Method name="unregisterObserver" returnType="void" visibility="public">
+          <Argument type="RulesThreadObserver" name="o"/>
+        </Method>
+        <Method name="notifyStateUpdating" returnType="void" visibility="public"/>
+        <Method name="notifyStateUpdated" returnType="void" visibility="public"/>
+        <Method name="notifyGameOver" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Thread" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="99.0" yPosition="10.0" width="175" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="RulesThreadObserver" package="examples.chap06.threads01.sync" visibility="public" generation="auto" xPosition="411.0" yPosition="24.0" width="249" height="114">
+      <Methods>
+        <Method name="stateUpdating" returnType="void" visibility="public">
+          <Argument type="Rules" name="rules"/>
+        </Method>
+        <Method name="stateUpdated" returnType="void" visibility="public">
+          <Argument type="Rules" name="rules"/>
+        </Method>
+        <Method name="gameOver" returnType="void" visibility="public">
+          <Argument type="Rules" name="rules"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="CachedStateObverser" package="examples.chap06.threads01.sync" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="19.0" yPosition="375.0" width="378" height="160">
+      <Fields>
+        <Field name="events" type="List&lt;Event&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+        <Method name="dispatchEvents" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+        <Method name="clearEvents" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="StateObserver" package="" visibility="public" generation="disabled" xPosition="32.0" yPosition="575.0" width="170" height="56">
+      <Methods/>
+    </Interface>
+    <Class name="Event" package="examples.chap06.threads01.sync" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="522.0" yPosition="314.0" width="317" height="108">
+      <Fields>
+        <Field name="state" type="State" visibility="protected" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="dispatchEvent" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="StateChanged" package="examples.chap06.threads01.sync" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="411.0" yPosition="474.0" width="321" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dispatchEvent" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WorldElementChanged" package="examples.chap06.threads01.sync" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="740.0" yPosition="474.0" width="340" height="110">
+      <Fields>
+        <Field name="x" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="dispatchEvent" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CharacterChanged" package="examples.chap06.threads01.sync" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="643.0" yPosition="160.0" width="328" height="93">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="dispatchEvent" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="events" source="examples.chap06.threads01.sync.CachedStateObverser" target="examples.chap06.threads01.sync.Event" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.sync.CachedStateObverser" target="StateObserver"/>
+    <IsRelation name="is" source="examples.chap06.threads01.sync.WorldElementChanged" target="examples.chap06.threads01.sync.Event"/>
+    <IsRelation name="is" source="examples.chap06.threads01.sync.RulesThread" target="Thread"/>
+    <HasRelation name="observers" source="examples.chap06.threads01.sync.RulesThread" target="examples.chap06.threads01.sync.RulesThreadObserver" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap06.threads01.sync.CharacterChanged" target="examples.chap06.threads01.sync.Event"/>
+    <IsRelation name="is" source="examples.chap06.threads01.sync.StateChanged" target="examples.chap06.threads01.sync.Event"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

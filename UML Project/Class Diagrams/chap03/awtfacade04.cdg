@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="awt_facade04" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="GUIFacade" package="examples.chap03.awtfacade04" visibility="public" generation="auto" xPosition="280.0" yPosition="0.0" width="382" height="233">
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="getKeyboard" returnType="Keyboard" visibility="public"/>
+        <Method name="getMouse" returnType="Mouse" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+        <Method name="drawLayer" returnType="void" visibility="public">
+          <Argument type="Layer" name="layer"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Main" package="examples.chap03.awtfacade04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="4.0" yPosition="0.0" width="219" height="380">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="infoLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelWidth" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelHeight" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="level" type="int[][]" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="keyboard" type="Keyboard" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="mouse" type="Mouse" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedTileX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedTileY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Keyboard" package="examples.chap03.awtfacade04" visibility="public" generation="auto" xPosition="391.0" yPosition="260.0" width="273" height="75">
+      <Methods>
+        <Method name="isKeyPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="keyCode"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Mouse" package="examples.chap03.awtfacade04" visibility="public" generation="auto" xPosition="671.0" yPosition="260.0" width="281" height="110">
+      <Methods>
+        <Method name="isButtonPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="button"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="AWTKeyboard" package="examples.chap03.awtfacade04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="393.0" yPosition="368.0" width="271" height="140">
+      <Fields>
+        <Field name="keys" type="boolean[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="keyTyped" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyPressed" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyReleased" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="isKeyPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="keyCode"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AWTMouse" package="examples.chap03.awtfacade04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="671.0" yPosition="393.0" width="281" height="281">
+      <Fields>
+        <Field name="buttons" type="boolean[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mouseDragged" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseMoved" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseClicked" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseEntered" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseExited" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="isButtonPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="button"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AWTGUIFacade" package="examples.chap03.awtfacade04" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="4.0" yPosition="431.0" width="379" height="261">
+      <Fields>
+        <Field name="window" type="AWTWindow" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="graphics" type="Graphics" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="getKeyboard" returnType="Keyboard" visibility="public"/>
+        <Method name="getMouse" returnType="Mouse" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+        <Method name="drawLayer" returnType="void" visibility="public">
+          <Argument type="Layer" name="layer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="KeyListener" package="java.awt.event" visibility="public" generation="disabled" xPosition="58.0" yPosition="697.0" width="271" height="147">
+      <Methods>
+        <Method name="keyTyped" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyPressed" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyReleased" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="MouseListener" package="java.awt.event" visibility="public" generation="disabled" xPosition="351.0" yPosition="697.0" width="311" height="147">
+      <Methods>
+        <Method name="mouseClicked" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseEntered" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseExited" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="MouseMotionListener" package="java.awt.event" visibility="public" generation="disabled" xPosition="678.0" yPosition="697.0" width="274" height="113">
+      <Methods>
+        <Method name="mouseDragged" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseMoved" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="&lt;&lt;create&gt;&gt;" source="examples.chap03.awtfacade04.AWTGUIFacade" target="examples.chap03.awtfacade04.AWTKeyboard" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.awtfacade04.GUIFacade" target="examples.chap03.awtfacade04.Mouse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.awtfacade04.GUIFacade" target="examples.chap03.awtfacade04.Keyboard" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade04.AWTKeyboard" target="java.awt.event.KeyListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade04.AWTGUIFacade" target="examples.chap03.awtfacade04.GUIFacade"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade04.AWTKeyboard" target="examples.chap03.awtfacade04.Keyboard"/>
+    <HasRelation name="gui" source="examples.chap03.awtfacade04.Main" target="examples.chap03.awtfacade04.GUIFacade" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="&lt;&lt;create&gt;&gt;" source="examples.chap03.awtfacade04.AWTGUIFacade" target="examples.chap03.awtfacade04.AWTMouse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade04.AWTMouse" target="java.awt.event.MouseMotionListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade04.AWTMouse" target="examples.chap03.awtfacade04.Mouse"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade04.AWTMouse" target="java.awt.event.MouseListener"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

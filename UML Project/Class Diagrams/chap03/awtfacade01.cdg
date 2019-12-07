@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="awt_facade01" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="GUIFacade" package="examples.chap03.awtfacade01" visibility="public" generation="auto" xPosition="144.0" yPosition="-1.0" width="243" height="80">
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="AWTGUIFacade" package="examples.chap03.awtfacade01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="142.0" yPosition="133.0" width="246" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Frame" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="375.0" yPosition="280.0" width="170" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WindowAdapter" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="191.0" yPosition="280.0" width="170" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="WindowEvent" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="1.0" yPosition="280.0" width="170" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade01.AWTGUIFacade" target="examples.chap03.awtfacade01.GUIFacade"/>
+    <UseRelation name="" source="examples.chap03.awtfacade01.AWTGUIFacade" target="WindowEvent" sourceCardinality="" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.awtfacade01.AWTGUIFacade" target="WindowAdapter" sourceCardinality="" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.awtfacade01.AWTGUIFacade" target="Frame" sourceCardinality="" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

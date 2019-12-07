@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="draw01" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Main" package="examples.chap04.draw01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="251.0" yPosition="0.0" width="292" height="158">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="currentMode" type="GameMode" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gameModes" type="LinkedList&lt;GameMode&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="setGameMode" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameMode" package="examples.chap04.draw01" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="251.0" yPosition="198.0" width="286" height="210">
+      <Fields>
+        <Field name="parent" type="Main" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gui" type="GUIFacade" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGameMode" returnType="void" visibility="public">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="init" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="handleInputs" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="PlayGameMode" package="examples.chap04.draw01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="22.0" yPosition="198.0" width="170" height="177">
+      <Fields>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelTileSet" type="TileSet" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="state" type="State" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WelcomeGameMode" package="examples.chap04.draw01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="567.0" yPosition="198.0" width="170" height="140">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="TileSet" package="examples.chap04.draw01.tile" visibility="public" generation="auto" xPosition="9.0" yPosition="438.0" width="196" height="132">
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getImageFile" returnType="String" visibility="public"/>
+        <Method name="getTile" returnType="Tile" visibility="public">
+          <Argument type="Element" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Tile" package="examples.chap04.draw01.tile" visibility="public" gettersGeneration="enabled" settersGeneration="enabled" generation="auto" xPosition="254.0" yPosition="464.0" width="170" height="80">
+      <Fields>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MenuGameMode" package="" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="558.0" yPosition="438.0" width="179" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="levelTileSet" source="examples.chap04.draw01.PlayGameMode" target="examples.chap04.draw01.tile.TileSet" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap04.draw01.PlayGameMode" target="examples.chap04.draw01.GameMode"/>
+    <HasRelation name="currentMode" source="examples.chap04.draw01.Main" target="examples.chap04.draw01.GameMode" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap04.draw01.WelcomeGameMode" target="examples.chap04.draw01.GameMode"/>
+    <UseRelation name="" source="examples.chap04.draw01.tile.TileSet" target="examples.chap04.draw01.tile.Tile" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="MenuGameMode" target="examples.chap04.draw01.GameMode"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

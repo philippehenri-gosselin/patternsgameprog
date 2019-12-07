@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ai03_rules_commands" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="Command" package="examples.chap05.ai03.rules.commands" visibility="public" generation="auto" xPosition="394.0" yPosition="176.0" width="211" height="80">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="InitCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="5.0" yPosition="7.0" width="375" height="118">
+      <Fields>
+        <Field name="pacmanSpeed" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="ghostSpeed" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DirectionCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="5.0" yPosition="128.0" width="375" height="116">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="direction" type="Direction" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MoveCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="5.0" yPosition="244.0" width="375" height="94">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GumsCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="5.0" yPosition="342.0" width="375" height="81">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CollisionsCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="620.0" yPosition="113.0" width="374" height="75">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ResurrectionCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="620.0" yPosition="195.0" width="374" height="94">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UpdateStatusCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="620.0" yPosition="7.0" width="374" height="89">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LoadLevelCommand" package="examples.chap05.ai03.rules.commands" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="621.0" yPosition="305.0" width="373" height="128">
+      <Fields>
+        <Field name="fileName" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanSpeed" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="ghostSpeed" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.ResurrectionCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.InitCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.GumsCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.MoveCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.UpdateStatusCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.LoadLevelCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.CollisionsCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai03.rules.commands.DirectionCommand" target="examples.chap05.ai03.rules.commands.Command"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

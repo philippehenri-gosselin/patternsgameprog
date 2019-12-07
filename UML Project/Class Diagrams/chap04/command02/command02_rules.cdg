@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="command02_rules" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Rules" package="examples.chap04.command02.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="227.0" yPosition="3.0" width="379" height="129">
+      <Fields>
+        <Field name="state" type="State" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="commands" type="TreeMap&lt;Integer,Command&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addCommand" returnType="void" visibility="public">
+          <Argument type="int" name="priority"/>
+          <Argument type="Command" name="command"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Command" package="examples.chap04.command02.rules" visibility="public" generation="auto" xPosition="371.0" yPosition="178.0" width="211" height="80">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="InitCommand" package="examples.chap04.command02.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="128.0" yPosition="289.0" width="211" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="State" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="52.0" yPosition="199.0" width="187" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DirectionCommand" package="examples.chap04.command02.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="377.0" yPosition="295.0" width="211" height="110">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="direction" type="Direction" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MoveCommand" package="examples.chap04.command02.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="619.0" yPosition="295.0" width="211" height="93">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="commands" source="examples.chap04.command02.rules.Rules" target="examples.chap04.command02.rules.Command" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command02.rules.InitCommand" target="examples.chap04.command02.rules.Command"/>
+    <UseRelation name="" source="examples.chap04.command02.rules.Command" target="State" sourceCardinality="" targetCardinality=""/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command02.rules.DirectionCommand" target="examples.chap04.command02.rules.Command"/>
+    <HasRelation name="state" source="examples.chap04.command02.rules.Rules" target="State" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command02.rules.MoveCommand" target="examples.chap04.command02.rules.Command"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

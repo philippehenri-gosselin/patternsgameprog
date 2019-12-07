@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ai02_rules_actions" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="Action" package="examples.chap05.ai02.rules.actions" visibility="public" generation="auto" xPosition="246.0" yPosition="226.0" width="194" height="97">
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="MoveAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="8.0" yPosition="136.0" width="194" height="161">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="dx" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="dy" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="dpos" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DirectionAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="8.0" yPosition="-1.0" width="194" height="144">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="prevdir" type="Direction" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="newdir" type="Direction" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GumAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="8.0" yPosition="295.0" width="194" height="147">
+      <Fields>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="type" type="SpaceTypeId" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EnableSuperAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="6.0" yPosition="444.0" width="199" height="126">
+      <Fields>
+        <Field name="duration" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="chars" type="Characters" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="KillPacmanAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="488.0" yPosition="295.0" width="194" height="110">
+      <Fields>
+        <Field name="pacman" type="Pacman" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="KillGhostAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="488.0" yPosition="443.0" width="194" height="127">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="ghost" type="Ghost" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ResurrectionAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="246.0" yPosition="443.0" width="194" height="127">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="ghost" type="Ghost" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UpdateStatusAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="485.0" yPosition="172.0" width="194" height="110">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PacmanStatusAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="238.0" yPosition="-1.0" width="210" height="127">
+      <Fields>
+        <Field name="newStatus" type="PacmanStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="prevStatus" type="PacmanStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GhostStatusAction" package="examples.chap05.ai02.rules.actions" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="485.0" yPosition="-1.0" width="197" height="144">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="newStatus" type="GhostStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="prevStatus" type="GhostStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.MoveAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.KillGhostAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.GhostStatusAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.PacmanStatusAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.KillPacmanAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.EnableSuperAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.GumAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.ResurrectionAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.DirectionAction" target="examples.chap05.ai02.rules.actions.Action"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai02.rules.actions.UpdateStatusAction" target="examples.chap05.ai02.rules.actions.Action"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

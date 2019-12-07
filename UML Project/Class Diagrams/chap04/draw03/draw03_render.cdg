@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="draw03_render" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="TileSet" package="examples.chap04.draw03.render" visibility="public" generation="auto" xPosition="341.0" yPosition="21.0" width="190" height="129">
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getImageFile" returnType="String" visibility="public"/>
+        <Method name="getTile" returnType="Tile" visibility="public">
+          <Argument type="Element" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="StaticTile" package="examples.chap04.draw03.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="51.0" yPosition="316.0" width="170" height="127">
+      <Fields>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AnimatedTile" package="examples.chap04.draw03.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="265.0" yPosition="316.0" width="177" height="142">
+      <Fields>
+        <Field name="tiles" type="List&lt;Tile&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="rate" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="addTile" returnType="void" visibility="public">
+          <Argument type="Tile" name="tile"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Tile" package="examples.chap04.draw03.render" visibility="public" generation="auto" xPosition="139.0" yPosition="187.0" width="185" height="96">
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Renderer" package="examples.chap04.draw03.render" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="-4.0" yPosition="-2.0" width="281" height="181">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelTileSet" type="TileSet" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsTileSet" type="TileSet" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.draw03.render.StaticTile" target="examples.chap04.draw03.render.Tile"/>
+    <UseRelation name="" source="examples.chap04.draw03.render.TileSet" target="examples.chap04.draw03.render.Tile" sourceCardinality="" targetCardinality="0..*"/>
+    <HasRelation name="tiles" source="examples.chap04.draw03.render.AnimatedTile" target="examples.chap04.draw03.render.Tile" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="tilesets" source="examples.chap04.draw03.render.Renderer" target="examples.chap04.draw03.render.TileSet" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.draw03.render.AnimatedTile" target="examples.chap04.draw03.render.Tile"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

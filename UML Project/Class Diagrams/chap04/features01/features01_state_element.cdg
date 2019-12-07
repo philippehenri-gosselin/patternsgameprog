@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="features01_state_element" gettersGeneration="not public" settersGeneration="not public" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="MobileElement" package="examples.chap04.features01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="217.0" yPosition="189.0" width="170" height="167">
+      <Fields>
+        <Field name="direction" type="Direction" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="speed" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="position" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="statusTime" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Pacman" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="25.0" yPosition="402.0" width="182" height="64">
+      <Fields>
+        <Field name="status" type="PacmanStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ghost" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="230.0" yPosition="402.0" width="170" height="82">
+      <Fields>
+        <Field name="status" type="GhostStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="color" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="color"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="Direction" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="31.0" yPosition="7.0" width="170" height="148">
+      <Literals>
+        <Literal name="NONE"/>
+        <Literal name="NORTH"/>
+        <Literal name="SOUTH"/>
+        <Literal name="EAST"/>
+        <Literal name="WEST"/>
+      </Literals>
+    </Enum>
+    <Enum name="PacmanStatus" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="31.0" yPosition="512.0" width="170" height="113">
+      <Literals>
+        <Literal name="NORMAL"/>
+        <Literal name="SUPER"/>
+        <Literal name="DEAD"/>
+      </Literals>
+    </Enum>
+    <Enum name="GhostStatus" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="230.0" yPosition="512.0" width="170" height="111">
+      <Literals>
+        <Literal name="TRACK"/>
+        <Literal name="EYES"/>
+        <Literal name="FLEE"/>
+      </Literals>
+    </Enum>
+    <Class name="StaticElement" package="examples.chap04.features01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="423.0" yPosition="215.0" width="175" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Wall" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="650.0" yPosition="406.0" width="189" height="60">
+      <Fields>
+        <Field name="wallTypeId" type="WallTypeId" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="WallTypeId" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="WallTypeId" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="659.0" yPosition="512.0" width="170" height="164">
+      <Literals>
+        <Literal name="TOPLEFT"/>
+        <Literal name="TOPRIGHT"/>
+        <Literal name="BOTTOMLEFT"/>
+        <Literal name="BOTTOMRIGHT"/>
+        <Literal name="HORIZONTAL"/>
+        <Literal name="VERTICAL"/>
+      </Literals>
+    </Enum>
+    <Class name="Space" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="423.0" yPosition="402.0" width="211" height="64">
+      <Fields>
+        <Field name="spaceTypeId" type="SpaceTypeId" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SpaceTypeId" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="SpaceTypeId" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="443.0" yPosition="512.0" width="170" height="164">
+      <Literals>
+        <Literal name="EMPTY"/>
+        <Literal name="GUM"/>
+        <Literal name="SUPERGUM"/>
+        <Literal name="GRAVEYARD"/>
+        <Literal name="START"/>
+        <Literal name="UNKNOWN"/>
+      </Literals>
+    </Enum>
+    <Class name="ElementFactory" package="examples.chap04.features01.state" visibility="public" gettersGeneration="disabled" settersGeneration="disabled" generation="auto" xPosition="601.0" yPosition="155.0" width="350" height="176">
+      <Fields>
+        <Field name="creators" type="Map&lt;Integer,ElementCreator&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getDefault" returnType="ElementFactory" visibility="public" isStatic="true"/>
+        <Method name="register" returnType="void" visibility="public">
+          <Argument type="int" name="code"/>
+          <Argument type="ElementCreator" name="creator"/>
+        </Method>
+        <Method name="unregister" returnType="void" visibility="public">
+          <Argument type="int" name="code"/>
+        </Method>
+        <Method name="create" returnType="Element" visibility="public">
+          <Argument type="int" name="code"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="ElementCreator" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="682.0" yPosition="12.0" width="189" height="96">
+      <Methods>
+        <Method name="create" returnType="Element" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Element" package="examples.chap04.features01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="352.0" yPosition="75.0" width="173" height="92">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Element" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Cloneable" package="" visibility="public" generation="auto" xPosition="223.0" yPosition="13.0" width="170" height="59">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap04.features01.state.StaticElement" target="examples.chap04.features01.state.Element"/>
+    <HasRelation name="spaceTypeId" source="examples.chap04.features01.state.Space" target="examples.chap04.features01.state.SpaceTypeId" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="status" source="examples.chap04.features01.state.Ghost" target="examples.chap04.features01.state.GhostStatus" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap04.features01.state.Pacman" target="examples.chap04.features01.state.MobileElement"/>
+    <HasRelation name="wallTypeId" source="examples.chap04.features01.state.Wall" target="examples.chap04.features01.state.WallTypeId" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="direction" source="examples.chap04.features01.state.MobileElement" target="examples.chap04.features01.state.Direction" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap04.features01.state.Ghost" target="examples.chap04.features01.state.MobileElement"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.features01.state.Element" target="Cloneable"/>
+    <UseRelation name="" source="examples.chap04.features01.state.ElementCreator" target="examples.chap04.features01.state.Element" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap04.features01.state.Wall" target="examples.chap04.features01.state.StaticElement"/>
+    <IsRelation name="is" source="examples.chap04.features01.state.Space" target="examples.chap04.features01.state.StaticElement"/>
+    <HasRelation name="creators" source="examples.chap04.features01.state.ElementFactory" target="examples.chap04.features01.state.ElementCreator" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap04.features01.state.MobileElement" target="examples.chap04.features01.state.Element"/>
+    <HasRelation name="status" source="examples.chap04.features01.state.Pacman" target="examples.chap04.features01.state.PacmanStatus" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

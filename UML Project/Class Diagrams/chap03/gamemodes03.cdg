@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="gamemodes03" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="true">
+  <ClassDiagramComponents>
+    <Class name="Main" package="examples.chap03.gamemodes03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="245.0" yPosition="372.0" width="293" height="150">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="currentMode" type="GameMode" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="setGameMode" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GameMode" package="examples.chap03.gamemodes03" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="241.0" yPosition="59.0" width="297" height="222">
+      <Fields>
+        <Field name="parent" type="Main" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gui" type="GUIFacade" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGameMode" returnType="void" visibility="public">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="handleInputs" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="PlayGameMode" package="examples.chap03.gamemodes03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="7.0" yPosition="6.0" width="170" height="346">
+      <Fields>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="infoLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelWidth" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelHeight" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="level" type="int[][]" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="keyboard" type="Keyboard" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="mouse" type="Mouse" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedTileX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedTileY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WelcomeGameMode" package="examples.chap03.gamemodes03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="607.0" yPosition="6.0" width="201" height="167">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MainMenuGameMode" package="examples.chap03.gamemodes03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="607.0" yPosition="182.0" width="412" height="231">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="items" type="List&lt;String&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedItem" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+        <Method name="paintMenu" returnType="Dimension" visibility="private">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="boolean" name="computeSize"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap03.gamemodes03.MainMenuGameMode" target="examples.chap03.gamemodes03.GameMode"/>
+    <IsRelation name="is" source="examples.chap03.gamemodes03.PlayGameMode" target="examples.chap03.gamemodes03.GameMode"/>
+    <IsRelation name="is" source="examples.chap03.gamemodes03.WelcomeGameMode" target="examples.chap03.gamemodes03.GameMode"/>
+    <HasRelation name="currentMode" source="examples.chap03.gamemodes03.Main" target="examples.chap03.gamemodes03.GameMode" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

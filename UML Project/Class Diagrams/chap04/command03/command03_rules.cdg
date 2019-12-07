@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="command03_rules" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Rules" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="80.0" yPosition="4.0" width="379" height="129">
+      <Fields>
+        <Field name="state" type="State" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="commands" type="TreeMap&lt;Integer,Command&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addCommand" returnType="void" visibility="public">
+          <Argument type="int" name="priority"/>
+          <Argument type="Command" name="command"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Command" package="examples.chap04.command03.rules" visibility="public" generation="auto" xPosition="279.0" yPosition="178.0" width="211" height="80">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="InitCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="4.0" yPosition="221.0" width="211" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="State" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="28.0" yPosition="178.0" width="187" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DirectionCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="16.0" yPosition="324.0" width="211" height="110">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="direction" type="Direction" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MoveCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="236.0" yPosition="339.0" width="211" height="93">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GumsCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="459.0" yPosition="356.0" width="290" height="112">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="eatGum" returnType="void" visibility="private">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="enableSuper" returnType="void" visibility="private">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CollisionsCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="507.0" yPosition="29.0" width="307" height="110">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="killGhost" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+        <Method name="killPacman" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ResurrectionCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="606.0" yPosition="148.0" width="208" height="95">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UpdateStatusCommand" package="examples.chap04.command03.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="613.0" yPosition="266.0" width="217" height="93">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="" source="examples.chap04.command03.rules.Command" target="State" sourceCardinality="" targetCardinality=""/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.InitCommand" target="examples.chap04.command03.rules.Command"/>
+    <HasRelation name="state" source="examples.chap04.command03.rules.Rules" target="State" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.CollisionsCommand" target="examples.chap04.command03.rules.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.DirectionCommand" target="examples.chap04.command03.rules.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.UpdateStatusCommand" target="examples.chap04.command03.rules.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.ResurrectionCommand" target="examples.chap04.command03.rules.Command"/>
+    <HasRelation name="commands" source="examples.chap04.command03.rules.Rules" target="examples.chap04.command03.rules.Command" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.GumsCommand" target="examples.chap04.command03.rules.Command"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.command03.rules.MoveCommand" target="examples.chap04.command03.rules.Command"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

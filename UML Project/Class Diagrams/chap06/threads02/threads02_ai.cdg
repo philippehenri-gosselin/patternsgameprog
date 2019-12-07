@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="threads02_ai" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="AI" package="examples.chap06.threads02.ai" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="311.0" yPosition="28.0" width="259" height="176">
+      <Fields>
+        <Field name="state" type="State" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charIndex" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="commandsLister" type="CommandsLister" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="random" type="Random" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="dmProvider" type="DistanceMapProvider" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="RandomAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="3.0" yPosition="11.0" width="226" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="CommandsLister" package="examples.chap06.threads02.ai" visibility="public" generation="auto" xPosition="591.0" yPosition="7.0" width="442" height="80">
+      <Methods>
+        <Method name="listCommands" returnType="List&lt;Command&gt;" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="DefaultCommandsLister" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="603.0" yPosition="115.0" width="419" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="listCommands" returnType="List&lt;Command&gt;" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ExplorationAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="3.0" yPosition="95.0" width="244" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TrackAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="3.0" yPosition="179.0" width="226" height="95">
+      <Fields>
+        <Field name="mapName" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FleeAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="3.0" yPosition="281.0" width="226" height="93">
+      <Fields>
+        <Field name="mapName" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PacmanAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="61.0" yPosition="381.0" width="226" height="127">
+      <Fields>
+        <Field name="eatAI" type="AI" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="fleeAI" type="AI" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="trackAI" type="AI" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GhostAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="311.0" yPosition="381.0" width="237" height="111">
+      <Fields>
+        <Field name="exploreAI" type="AI" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="fleeAI" type="AI" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MinimaxAI" package="examples.chap06.threads02.ai" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="609.0" yPosition="354.0" width="226" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createCommand" returnType="Command" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.GhostAI" target="examples.chap06.threads02.ai.AI"/>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.RandomAI" target="examples.chap06.threads02.ai.AI"/>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.TrackAI" target="examples.chap06.threads02.ai.AI"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads02.ai.DefaultCommandsLister" target="examples.chap06.threads02.ai.CommandsLister"/>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.ExplorationAI" target="examples.chap06.threads02.ai.AI"/>
+    <HasRelation name="commandsLister" source="examples.chap06.threads02.ai.AI" target="examples.chap06.threads02.ai.CommandsLister" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.MinimaxAI" target="examples.chap06.threads02.ai.AI"/>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.PacmanAI" target="examples.chap06.threads02.ai.AI"/>
+    <IsRelation name="is" source="examples.chap06.threads02.ai.FleeAI" target="examples.chap06.threads02.ai.AI"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

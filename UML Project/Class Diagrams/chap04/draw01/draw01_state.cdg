@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="draw01_state" gettersGeneration="not public" settersGeneration="not public">
+  <ClassDiagramComponents>
+    <Class name="MobileElement" package="examples.chap04.draw01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="67.0" yPosition="462.0" width="171" height="56">
+      <Fields>
+        <Field name="direction" type="Direction" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="speed" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="position" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="statusTime" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="StaticElement" package="examples.chap04.draw01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="408.0" yPosition="462.0" width="175" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Characters" package="examples.chap04.draw01.state" visibility="public" gettersGeneration="auto" settersGeneration="disabled" generation="auto" xPosition="3.0" yPosition="205.0" width="298" height="130">
+      <Fields>
+        <Field name="chars" type="List&lt;MobileElement&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="get" returnType="List&lt;MobileElement&gt;" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="World" package="examples.chap04.draw01.state" visibility="public" gettersGeneration="auto" settersGeneration="disabled" generation="auto" xPosition="447.0" yPosition="183.0" width="347" height="227">
+      <Fields>
+        <Field name="width" type="int" visibility="private" gettersGeneration="auto" settersGeneration="disabled"/>
+        <Field name="height" type="int" visibility="private" gettersGeneration="auto" settersGeneration="disabled"/>
+        <Field name="elements" type="StaticElement[][]" visibility="private" gettersGeneration="auto" settersGeneration="disabled"/>
+        <Field name="factory" type="ElementFactory" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="int[][]" name="level"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="StaticElement" name="e"/>
+        </Method>
+        <Method name="get" returnType="StaticElement" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="Direction" name="d"/>
+        </Method>
+        <Method name="iterator" returnType="WorldIterator" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="State" package="examples.chap04.draw01.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="289.0" yPosition="0.0" width="170" height="125">
+      <Fields>
+        <Field name="chars" type="Characters" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="world" type="World" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ElementFactory" package="examples.chap04.draw01.state" visibility="public" gettersGeneration="disabled" settersGeneration="disabled" generation="disabled" xPosition="619.0" yPosition="462.0" width="175" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="List&lt;MobileElement&gt;" package="" visibility="public" generation="disabled" xPosition="3.0" yPosition="87.0" width="181" height="56">
+      <Methods/>
+    </Interface>
+    <Interface name="Iterable&lt;StaticElement&gt;" package="" visibility="public" generation="disabled" xPosition="571.0" yPosition="87.0" width="223" height="56">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="chars" source="examples.chap04.draw01.state.Characters" target="examples.chap04.draw01.state.MobileElement" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="chars" source="examples.chap04.draw01.state.State" target="examples.chap04.draw01.state.Characters" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="elements" source="examples.chap04.draw01.state.World" target="examples.chap04.draw01.state.StaticElement" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.draw01.state.World" target="Iterable&lt;StaticElement&gt;"/>
+    <HasRelation name="factory" source="examples.chap04.draw01.state.World" target="examples.chap04.draw01.state.ElementFactory" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.draw01.state.Characters" target="List&lt;MobileElement&gt;"/>
+    <HasRelation name="world" source="examples.chap04.draw01.state.State" target="examples.chap04.draw01.state.World" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

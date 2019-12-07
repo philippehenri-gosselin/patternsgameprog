@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="gamemodes00" gettersGeneration="disabled" settersGeneration="not public" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Main" package="examples.chap03.gamemodes00" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="306.0" yPosition="4.0" width="227" height="127">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="mode" type="GameMode" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PlayGameMode" package="examples.chap03.gamemodes00" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="7.0" yPosition="194.0" width="230" height="364">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="infoLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelWidth" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelHeight" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="level" type="int[][]" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="keyboard" type="Keyboard" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="pacmanY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="mouse" type="Mouse" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedTileX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedTileY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="GameMode" package="" visibility="public" generation="auto" xPosition="37.0" yPosition="0.0" width="170" height="134">
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mode" source="examples.chap03.gamemodes00.Main" target="GameMode" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.gamemodes00.PlayGameMode" target="GameMode"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

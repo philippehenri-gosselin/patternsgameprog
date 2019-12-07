@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="network01" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Main" package="examples.chap06.network01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="2.0" yPosition="516.0" width="288" height="176">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="currentMode" type="GameMode" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gameModes" type="LinkedList&lt;GameMode&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gameBuilder" type="GameBuilder" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="setGameMode" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="clearGameModes" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameMode" package="examples.chap06.network01" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="367.0" yPosition="343.0" width="298" height="248">
+      <Fields>
+        <Field name="parent" type="Main" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gui" type="GUIFacade" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGameMode" returnType="void" visibility="public">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="clearGameModes" returnType="void" visibility="public"/>
+        <Method name="getGameBuilder" returnType="GameBuilder" visibility="public"/>
+        <Method name="init" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="handleInputs" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PlayGameMode" package="examples.chap06.network01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="2.0" yPosition="-2.0" width="327" height="328">
+      <Fields>
+        <Field name="rulesThread" type="RulesThread" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="renderer" type="Renderer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="initCommand" type="Command" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="cachedStateObserver" type="CachedStateObverser" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="commands" type="TreeMap&lt;Integer,Command&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="dmProvider" type="DistanceMapProvider" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="ais" type="AI[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="jsonBuilderFactory" type="JsonBuilderFactory" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="replay" type="ArrayList&lt;JsonObject&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+        <Method name="stateUpdating" returnType="void" visibility="public">
+          <Argument type="Rules" name="rules"/>
+        </Method>
+        <Method name="stateUpdated" returnType="void" visibility="public">
+          <Argument type="Rules" name="rules"/>
+        </Method>
+        <Method name="gameOver" returnType="void" visibility="public">
+          <Argument type="Rules" name="rules"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WelcomeGameMode" package="examples.chap06.network01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="771.0" yPosition="166.0" width="195" height="143">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MenuGameMode" package="" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="760.0" yPosition="547.0" width="179" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GameOverMode" package="examples.chap06.network01" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="760.0" yPosition="354.0" width="206" height="148">
+      <Fields>
+        <Field name="msg" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GameBuilder" package="examples.chap06.network01" visibility="public" gettersGeneration="enabled" settersGeneration="enabled" generation="auto" xPosition="30.0" yPosition="373.0" width="233" height="110">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="difficulty" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createGame" returnType="PlayGameMode" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="RulesThreadObserver" package="" visibility="public" generation="disabled" xPosition="485.0" yPosition="36.0" width="208" height="56">
+      <Methods/>
+    </Interface>
+    <Class name="CachedStateObserver" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="485.0" yPosition="95.0" width="211" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DistanceMapProvider" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="464.0" yPosition="145.0" width="207" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="AI" package="" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="464.0" yPosition="202.0" width="208" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="currentMode" source="examples.chap06.network01.Main" target="examples.chap06.network01.GameMode" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap06.network01.WelcomeGameMode" target="examples.chap06.network01.GameMode"/>
+    <IsRelation name="is" source="examples.chap06.network01.GameOverMode" target="examples.chap06.network01.GameMode"/>
+    <UseRelation name="&lt;&lt;create&gt;&gt;" source="examples.chap06.network01.GameBuilder" target="examples.chap06.network01.PlayGameMode" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="MenuGameMode" target="examples.chap06.network01.GameMode"/>
+    <IsRelation name="is" source="examples.chap06.network01.PlayGameMode" target="examples.chap06.network01.GameMode"/>
+    <HasRelation name="dmProvider" source="examples.chap06.network01.PlayGameMode" target="DistanceMapProvider" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="ais" source="examples.chap06.network01.PlayGameMode" target="AI" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="gameBuilder" source="examples.chap06.network01.Main" target="examples.chap06.network01.GameBuilder" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="cachedStateObserver" source="examples.chap06.network01.PlayGameMode" target="CachedStateObserver" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.network01.PlayGameMode" target="RulesThreadObserver"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

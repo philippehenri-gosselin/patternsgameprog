@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="checkers" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Board" package="examples.chap04.checkers" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="443.0" yPosition="332.0" width="327" height="144">
+      <Fields>
+        <Field name="board" type="int[][]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="currentPlayer" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getCurrentPlayer" returnType="int" visibility="public"/>
+        <Method name="getPiece" returnType="int" visibility="public">
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="j"/>
+        </Method>
+        <Method name="movePiece" returnType="boolean" visibility="public">
+          <Argument type="int" name="i0"/>
+          <Argument type="int" name="j0"/>
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="j"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MoveCommand" package="examples.chap04.checkers" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="320.0" yPosition="175.0" width="218" height="144">
+      <Fields>
+        <Field name="i0" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="j0" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="i1" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="j1" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Board" name="board"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BoardComponent" package="examples.chap04.checkers" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="29.0" yPosition="319.0" width="172" height="76">
+      <Fields>
+        <Field name="board" type="Board" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="JComponent" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="29.0" yPosition="421.0" width="170" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Checkers" package="examples.chap04.checkers" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="6.0" yPosition="103.0" width="278" height="144">
+      <Fields>
+        <Field name="rules" type="Rules" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedPiece" type="int[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="statusBar" type="JLabel" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JFrame" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="6.0" yPosition="7.0" width="170" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="MouseListener" package="" visibility="public" generation="disabled" xPosition="219.0" yPosition="7.0" width="170" height="56">
+      <Methods/>
+    </Interface>
+    <Class name="Rules" package="examples.chap04.checkers" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="439.0" yPosition="17.0" width="331" height="127">
+      <Fields>
+        <Field name="board" type="Board" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="command" type="MoveCommand" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setCommand" returnType="void" visibility="public">
+          <Argument type="MoveCommand" name="command"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.checkers.Checkers" target="MouseListener"/>
+    <UseRelation name="" source="examples.chap04.checkers.Checkers" target="examples.chap04.checkers.BoardComponent" sourceCardinality="" targetCardinality=""/>
+    <HasRelation name="board" source="examples.chap04.checkers.Rules" target="examples.chap04.checkers.Board" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap04.checkers.BoardComponent" target="JComponent"/>
+    <UseRelation name="" source="examples.chap04.checkers.Checkers" target="examples.chap04.checkers.MoveCommand" sourceCardinality="" targetCardinality=""/>
+    <UseRelation name="" source="examples.chap04.checkers.MoveCommand" target="examples.chap04.checkers.Board" sourceCardinality="" targetCardinality=""/>
+    <HasRelation name="rules" source="examples.chap04.checkers.Checkers" target="examples.chap04.checkers.Rules" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap04.checkers.Checkers" target="JFrame"/>
+    <HasRelation name="command" source="examples.chap04.checkers.Rules" target="examples.chap04.checkers.MoveCommand" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="board" source="examples.chap04.checkers.BoardComponent" target="examples.chap04.checkers.Board" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

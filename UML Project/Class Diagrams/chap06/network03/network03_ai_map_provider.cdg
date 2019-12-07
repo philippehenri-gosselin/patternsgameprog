@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="network03_ai_map_provider" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="DistanceMapProvider" package="examples.chap06.network03.ai.mapproviders" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="5.0" yPosition="1.0" width="460" height="177">
+      <Fields>
+        <Field name="maintainers" type="Map&lt;String,DistanceMapMaintainer&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="registerMaintainer" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="DistanceMapMaintainer" name="m"/>
+        </Method>
+        <Method name="unregisterMaintainer" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getMap" returnType="DistanceMap" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DistanceMapMaintainer" package="examples.chap06.network03.ai.mapproviders" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="47.0" yPosition="228.0" width="377" height="159">
+      <Fields>
+        <Field name="map" type="DistanceMap" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getMap" returnType="DistanceMap" visibility="public"/>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="StateObserver" package="" visibility="public" generation="disabled" xPosition="536.0" yPosition="14.0" width="377" height="114">
+      <Methods>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="CharMapMaintainer" package="examples.chap06.network03.ai.mapproviders" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="11.0" yPosition="423.0" width="371" height="127">
+      <Fields>
+        <Field name="trackIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="trackX" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="trackY" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GraveyardMapMaintainer" package="examples.chap06.network03.ai.mapproviders" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="440.0" yPosition="491.0" width="250" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GhostsMapMaintainer" package="examples.chap06.network03.ai.mapproviders" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="548.0" yPosition="381.0" width="371" height="93">
+      <Fields>
+        <Field name="coords" type="int[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GumsMapMaintainer" package="examples.chap06.network03.ai.mapproviders" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="542.0" yPosition="234.0" width="377" height="91">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap06.network03.ai.mapproviders.GumsMapMaintainer" target="examples.chap06.network03.ai.mapproviders.DistanceMapMaintainer"/>
+    <IsRelation name="is" source="examples.chap06.network03.ai.mapproviders.GraveyardMapMaintainer" target="examples.chap06.network03.ai.mapproviders.DistanceMapMaintainer"/>
+    <HasRelation name="maintainers" source="examples.chap06.network03.ai.mapproviders.DistanceMapProvider" target="examples.chap06.network03.ai.mapproviders.DistanceMapMaintainer" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.network03.ai.mapproviders.DistanceMapMaintainer" target="StateObserver"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.network03.ai.mapproviders.DistanceMapProvider" target="StateObserver"/>
+    <IsRelation name="is" source="examples.chap06.network03.ai.mapproviders.CharMapMaintainer" target="examples.chap06.network03.ai.mapproviders.DistanceMapMaintainer"/>
+    <IsRelation name="is" source="examples.chap06.network03.ai.mapproviders.GhostsMapMaintainer" target="examples.chap06.network03.ai.mapproviders.DistanceMapMaintainer"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

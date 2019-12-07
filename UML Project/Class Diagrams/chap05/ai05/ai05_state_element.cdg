@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ai05_state_element" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="Pacman" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="5.0" yPosition="461.0" width="253" height="114">
+      <Methods>
+        <Method name="getStatus" returnType="PacmanStatus" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="PacmanStatus" name="status"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="MobileElement" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="119.0" yPosition="166.0" width="281" height="284">
+      <Methods>
+        <Method name="getDirection" returnType="Direction" visibility="public"/>
+        <Method name="setDirection" returnType="void" visibility="public">
+          <Argument type="Direction" name="direction"/>
+        </Method>
+        <Method name="getSpeed" returnType="int" visibility="public"/>
+        <Method name="setSpeed" returnType="void" visibility="public">
+          <Argument type="int" name="speed"/>
+        </Method>
+        <Method name="getPosition" returnType="int" visibility="public"/>
+        <Method name="setPosition" returnType="void" visibility="public">
+          <Argument type="int" name="position"/>
+        </Method>
+        <Method name="getStatusTime" returnType="int" visibility="public"/>
+        <Method name="setStatusTime" returnType="void" visibility="public">
+          <Argument type="int" name="statusTime"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Enum name="Direction" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="5.0" yPosition="2.0" width="170" height="148">
+      <Literals>
+        <Literal name="NONE"/>
+        <Literal name="NORTH"/>
+        <Literal name="SOUTH"/>
+        <Literal name="EAST"/>
+        <Literal name="WEST"/>
+      </Literals>
+    </Enum>
+    <Enum name="PacmanStatus" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="46.0" yPosition="616.0" width="170" height="113">
+      <Literals>
+        <Literal name="NORMAL"/>
+        <Literal name="SUPER"/>
+        <Literal name="DEAD"/>
+      </Literals>
+    </Enum>
+    <Enum name="GhostStatus" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="308.0" yPosition="616.0" width="170" height="111">
+      <Literals>
+        <Literal name="TRACK"/>
+        <Literal name="EYES"/>
+        <Literal name="FLEE"/>
+      </Literals>
+    </Enum>
+    <Enum name="WallTypeId" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="614.0" yPosition="616.0" width="170" height="164">
+      <Literals>
+        <Literal name="TOPLEFT"/>
+        <Literal name="TOPRIGHT"/>
+        <Literal name="BOTTOMLEFT"/>
+        <Literal name="BOTTOMRIGHT"/>
+        <Literal name="HORIZONTAL"/>
+        <Literal name="VERTICAL"/>
+      </Literals>
+    </Enum>
+    <Enum name="SpaceTypeId" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="841.0" yPosition="616.0" width="170" height="164">
+      <Literals>
+        <Literal name="EMPTY"/>
+        <Literal name="GUM"/>
+        <Literal name="SUPERGUM"/>
+        <Literal name="GRAVEYARD"/>
+        <Literal name="START"/>
+        <Literal name="UNKNOWN"/>
+      </Literals>
+    </Enum>
+    <Interface name="Element" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="388.0" yPosition="24.0" width="194" height="99">
+      <Methods>
+        <Method name="clone" returnType="Element" visibility="public"/>
+        <Method name="toImmutable" returnType="Element" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Cloneable" package="" visibility="public" generation="disabled" xPosition="182.0" yPosition="33.0" width="170" height="63">
+      <Methods/>
+    </Interface>
+    <Interface name="Ghost" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="263.0" yPosition="467.0" width="273" height="148">
+      <Methods>
+        <Method name="getColor" returnType="int" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="int" name="color"/>
+        </Method>
+        <Method name="getStatus" returnType="GhostStatus" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="GhostStatus" name="status"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="StaticElement" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="431.0" yPosition="299.0" width="170" height="63">
+      <Methods/>
+    </Interface>
+    <Interface name="Wall" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="546.0" yPosition="461.0" width="307" height="114">
+      <Methods>
+        <Method name="getWallTypeId" returnType="WallTypeId" visibility="public"/>
+        <Method name="setWallTypeId" returnType="void" visibility="public">
+          <Argument type="WallTypeId" name="wallTypeId"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Space" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="649.0" yPosition="316.0" width="350" height="114">
+      <Methods>
+        <Method name="getSpaceTypeId" returnType="SpaceTypeId" visibility="public"/>
+        <Method name="setSpaceTypeId" returnType="void" visibility="public">
+          <Argument type="SpaceTypeId" name="spaceTypeId"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="ElementCreator" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="729.0" yPosition="30.0" width="203" height="80">
+      <Methods>
+        <Method name="create" returnType="MutableElement" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="ElementFactory" package="examples.chap05.ai05.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="655.0" yPosition="159.0" width="350" height="144">
+      <Fields>
+        <Field name="creators" type="Map&lt;Integer,ElementCreator&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getDefault" returnType="ElementFactory" visibility="public" isStatic="true"/>
+        <Method name="register" returnType="void" visibility="public">
+          <Argument type="int" name="code"/>
+          <Argument type="ElementCreator" name="creator"/>
+        </Method>
+        <Method name="unregister" returnType="void" visibility="public">
+          <Argument type="int" name="code"/>
+        </Method>
+        <Method name="create" returnType="MutableElement" visibility="public">
+          <Argument type="int" name="code"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap05.ai05.state.Element" target="Cloneable"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.Space" target="examples.chap05.ai05.state.StaticElement"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.Pacman" target="examples.chap05.ai05.state.PacmanStatus" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.StaticElement" target="examples.chap05.ai05.state.Element"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.Space" target="examples.chap05.ai05.state.SpaceTypeId" sourceCardinality="" targetCardinality=""/>
+    <UseRelation name="" source="examples.chap05.ai05.state.Ghost" target="examples.chap05.ai05.state.GhostStatus" sourceCardinality="" targetCardinality=""/>
+    <HasRelation name="creators" source="examples.chap05.ai05.state.ElementFactory" target="examples.chap05.ai05.state.ElementCreator" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.Wall" target="examples.chap05.ai05.state.StaticElement"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.Wall" target="examples.chap05.ai05.state.WallTypeId" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.MobileElement" target="examples.chap05.ai05.state.Element"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.Pacman" target="examples.chap05.ai05.state.MobileElement"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.Ghost" target="examples.chap05.ai05.state.MobileElement"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.MobileElement" target="examples.chap05.ai05.state.Direction" sourceCardinality="" targetCardinality=""/>
+  </ClassDiagramRelations>
+</ClassDiagram>

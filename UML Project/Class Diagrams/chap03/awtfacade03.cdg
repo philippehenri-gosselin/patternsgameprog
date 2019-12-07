@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="awt_facade03" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="GUIFacade" package="examples.chap03.awtfacade03" visibility="public" generation="auto" xPosition="505.0" yPosition="447.0" width="382" height="204">
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+        <Method name="drawLayer" returnType="void" visibility="public">
+          <Argument type="Layer" name="layer"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="AWTGUIFacade" package="examples.chap03.awtfacade03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="26.0" yPosition="425.0" width="383" height="226">
+      <Fields>
+        <Field name="window" type="AWTWindow" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="graphics" type="Graphics" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+        <Method name="drawLayer" returnType="void" visibility="public">
+          <Argument type="Layer" name="layer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AWTWindow" package="examples.chap03.awtfacade03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="65.0" yPosition="739.0" width="321" height="226">
+      <Fields>
+        <Field name="closingRequested" type="boolean" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvas" type="Canvas" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvasWidth" type="int" visibility="private" gettersGeneration="not public" settersGeneration="auto"/>
+        <Field name="canvasHeight" type="int" visibility="private" gettersGeneration="not public" settersGeneration="auto"/>
+        <Field name="bs" type="BufferStrategy" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="createCanvas" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="createGraphics" returnType="Graphics" visibility="public"/>
+        <Method name="switchBuffers" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="examples.chap03.awtfacade03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="569.0" yPosition="692.0" width="219" height="228">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="charsLayer" type="Layer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelWidth" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="levelHeight" type="int" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="level" type="int[][]" visibility="private" isStatic="true" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Layer" package="examples.chap03.awtfacade03" visibility="public" generation="auto" xPosition="487.0" yPosition="65.0" width="419" height="221">
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getTextureWidth" returnType="int" visibility="public"/>
+        <Method name="getTextureHeight" returnType="int" visibility="public"/>
+        <Method name="setTileSize" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="setTexture" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="setSpriteCount" returnType="void" visibility="public">
+          <Argument type="int" name="count"/>
+        </Method>
+        <Method name="setSpriteTexture" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="tileX"/>
+          <Argument type="int" name="tileY"/>
+        </Method>
+        <Method name="setSpriteLocation" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="screenX"/>
+          <Argument type="int" name="screenY"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="AWTLayer" package="examples.chap03.awtfacade03" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="9.0" yPosition="0.0" width="431" height="333">
+      <Fields>
+        <Field name="tileWidth" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="tileHeight" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="texture" type="BufferedImage" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="textureWidth" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="textureHeight" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="sprites" type="int[][]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getTextureWidth" returnType="int" visibility="public"/>
+        <Method name="getTextureHeight" returnType="int" visibility="public"/>
+        <Method name="setTileSize" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="setTexture" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="setSpriteCount" returnType="void" visibility="public">
+          <Argument type="int" name="count"/>
+        </Method>
+        <Method name="setSpriteTexture" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="tileX"/>
+          <Argument type="int" name="tileY"/>
+        </Method>
+        <Method name="setSpriteLocation" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="screenX"/>
+          <Argument type="int" name="screenY"/>
+        </Method>
+        <Method name="draw" returnType="void" visibility="public">
+          <Argument type="Graphics" name="graphics"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="&lt;&lt;create&gt;&gt;" source="examples.chap03.awtfacade03.AWTGUIFacade" target="examples.chap03.awtfacade03.AWTLayer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade03.AWTGUIFacade" target="examples.chap03.awtfacade03.GUIFacade"/>
+    <UseRelation name="" source="examples.chap03.awtfacade03.GUIFacade" target="examples.chap03.awtfacade03.Layer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gui" source="examples.chap03.awtfacade03.Main" target="examples.chap03.awtfacade03.GUIFacade" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade03.AWTLayer" target="examples.chap03.awtfacade03.Layer"/>
+    <HasRelation name="window" source="examples.chap03.awtfacade03.AWTGUIFacade" target="examples.chap03.awtfacade03.AWTWindow" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

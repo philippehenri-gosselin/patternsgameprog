@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="network02_server" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Service" package="examples.chap06.network02.server" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="113.0" yPosition="186.0" width="392" height="159">
+      <Fields>
+        <Field name="jsonBuilderFactory" type="JsonBuilderFactory" visibility="protected" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="get" returnType="Status" visibility="public">
+          <Argument type="JsonObjectBuilder" name="output"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="post" returnType="Status" visibility="public">
+          <Argument type="JsonObject" name="input"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="put" returnType="Status" visibility="public">
+          <Argument type="JsonObjectBuilder" name="output"/>
+          <Argument type="JsonObject" name="input"/>
+        </Method>
+        <Method name="delete" returnType="Status" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VersionService" package="examples.chap06.network02.server" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="57.0" yPosition="385.0" width="328" height="75">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="get" returnType="Status" visibility="public">
+          <Argument type="JsonObjectBuilder" name="output"/>
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PlayerService" package="examples.chap06.network02.server" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="414.0" yPosition="398.0" width="396" height="140">
+      <Fields>
+        <Field name="players" type="List&lt;Player&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="get" returnType="Status" visibility="public">
+          <Argument type="JsonObjectBuilder" name="output"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="post" returnType="Status" visibility="public">
+          <Argument type="JsonObject" name="input"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="put" returnType="Status" visibility="public">
+          <Argument type="JsonObjectBuilder" name="output"/>
+          <Argument type="JsonObject" name="input"/>
+        </Method>
+        <Method name="delete" returnType="Status" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Player" package="examples.chap06.network02.server" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="140.0" yPosition="486.0" width="170" height="93">
+      <Fields>
+        <Field name="name" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="ai" type="boolean" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ServiceException" package="examples.chap06.network02.server" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="667.0" yPosition="147.0" width="170" height="76">
+      <Fields>
+        <Field name="status" type="Status" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Exception" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="880.0" yPosition="165.0" width="170" height="59">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Status" package="examples.chap06.network02.server" visibility="public" generation="auto" xPosition="876.0" yPosition="311.0" width="170" height="182">
+      <Literals>
+        <Literal name="OK"/>
+        <Literal name="CREATED"/>
+        <Literal name="NO_CONTENT"/>
+        <Literal name="BAD_REQUEST"/>
+        <Literal name="FORBIDDEN"/>
+        <Literal name="NOT_FOUND"/>
+        <Literal name="BAD_METHOD"/>
+      </Literals>
+    </Enum>
+    <Class name="ServiceManager" package="examples.chap06.network02.server" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="14.0" yPosition="17.0" width="365" height="144">
+      <Fields>
+        <Field name="services" type="Map&lt;String,Service&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="jsonBuilderFactory" type="JsonBuilderFactory" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="registerService" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Service" name="service"/>
+        </Method>
+        <Method name="unregisterService" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="queryService" returnType="Status" visibility="public">
+          <Argument type="ServiceQuery" name="query"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ServiceQuery" package="examples.chap06.network02.server" visibility="public" gettersGeneration="not public" settersGeneration="auto" generation="auto" xPosition="420.0" yPosition="17.0" width="170" height="127">
+      <Fields>
+        <Field name="method" type="String" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="path" type="String" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="input" type="JsonObject" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="output" type="JsonObject" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap06.network02.server.VersionService" target="examples.chap06.network02.server.Service"/>
+    <HasRelation name="status" source="examples.chap06.network02.server.ServiceException" target="examples.chap06.network02.server.Status" type="Default" sourceCardinality="0..1" targetCardinality=""/>
+    <HasRelation name="services" source="examples.chap06.network02.server.ServiceManager" target="examples.chap06.network02.server.Service" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap06.network02.server.ServiceException" target="Exception"/>
+    <IsRelation name="is" source="examples.chap06.network02.server.PlayerService" target="examples.chap06.network02.server.Service"/>
+    <HasRelation name="players" source="examples.chap06.network02.server.PlayerService" target="examples.chap06.network02.server.Player" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation name="" source="examples.chap06.network02.server.ServiceManager" target="examples.chap06.network02.server.ServiceQuery" sourceCardinality="" targetCardinality=""/>
+  </ClassDiagramRelations>
+</ClassDiagram>

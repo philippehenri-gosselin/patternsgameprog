@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="draw00_state_element" gettersGeneration="not public" settersGeneration="not public" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="MobileElement" package="examples.chap04.draw00.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="230.0" yPosition="90.0" width="170" height="163">
+      <Fields>
+        <Field name="direction" type="Direction" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="speed" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="position" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="statusTime" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Pacman" package="examples.chap04.draw00.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="1.0" yPosition="267.0" width="182" height="64">
+      <Fields>
+        <Field name="status" type="PacmanStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Ghost" package="examples.chap04.draw00.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="189.0" yPosition="267.0" width="170" height="79">
+      <Fields>
+        <Field name="status" type="GhostStatus" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="color" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="color"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="Direction" package="examples.chap04.draw00.state" visibility="public" generation="auto" xPosition="1.0" yPosition="0.0" width="170" height="146">
+      <Literals>
+        <Literal name="NONE"/>
+        <Literal name="NORTH"/>
+        <Literal name="SOUTH"/>
+        <Literal name="EAST"/>
+        <Literal name="WEST"/>
+      </Literals>
+    </Enum>
+    <Enum name="PacmanStatus" package="examples.chap04.draw00.state" visibility="public" generation="auto" xPosition="7.0" yPosition="380.0" width="170" height="113">
+      <Literals>
+        <Literal name="NORMAL"/>
+        <Literal name="SUPER"/>
+        <Literal name="DEAD"/>
+      </Literals>
+    </Enum>
+    <Enum name="GhostStatus" package="examples.chap04.draw00.state" visibility="public" generation="auto" xPosition="189.0" yPosition="380.0" width="170" height="111">
+      <Literals>
+        <Literal name="TRACK"/>
+        <Literal name="EYES"/>
+        <Literal name="FLEE"/>
+      </Literals>
+    </Enum>
+    <Class name="StaticElement" package="examples.chap04.draw00.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="410.0" yPosition="90.0" width="175" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Wall" package="examples.chap04.draw00.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="588.0" yPosition="267.0" width="191" height="64">
+      <Fields>
+        <Field name="wallTypeId" type="WallTypeId" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="WallTypeId" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="WallTypeId" package="examples.chap04.draw00.state" visibility="public" generation="auto" xPosition="597.0" yPosition="380.0" width="170" height="164">
+      <Literals>
+        <Literal name="TOPLEFT"/>
+        <Literal name="TOPRIGHT"/>
+        <Literal name="BOTTOMLEFT"/>
+        <Literal name="BOTTOMRIGHT"/>
+        <Literal name="HORIZONTAL"/>
+        <Literal name="VERTICAL"/>
+      </Literals>
+    </Enum>
+    <Class name="Space" package="examples.chap04.draw00.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="374.0" yPosition="267.0" width="211" height="64">
+      <Fields>
+        <Field name="spaceTypeId" type="SpaceTypeId" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SpaceTypeId" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="SpaceTypeId" package="examples.chap04.draw00.state" visibility="public" generation="auto" xPosition="394.0" yPosition="380.0" width="170" height="164">
+      <Literals>
+        <Literal name="EMPTY"/>
+        <Literal name="GUM"/>
+        <Literal name="SUPERGUM"/>
+        <Literal name="GRAVEYARD"/>
+        <Literal name="START"/>
+        <Literal name="UNKNOWN"/>
+      </Literals>
+    </Enum>
+    <Class name="Element" package="examples.chap04.draw00.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="318.0" yPosition="0.0" width="170" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="spaceTypeId" source="examples.chap04.draw00.state.Space" target="examples.chap04.draw00.state.SpaceTypeId" type="Default" sourceCardinality="0..1" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap04.draw00.state.Wall" target="examples.chap04.draw00.state.StaticElement"/>
+    <IsRelation name="is" source="examples.chap04.draw00.state.Pacman" target="examples.chap04.draw00.state.MobileElement"/>
+    <IsRelation name="is" source="examples.chap04.draw00.state.MobileElement" target="examples.chap04.draw00.state.Element"/>
+    <HasRelation name="status" source="examples.chap04.draw00.state.Pacman" target="examples.chap04.draw00.state.PacmanStatus" type="Default" sourceCardinality="0..1" targetCardinality=""/>
+    <HasRelation name="status" source="examples.chap04.draw00.state.Ghost" target="examples.chap04.draw00.state.GhostStatus" type="Default" sourceCardinality="0..1" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap04.draw00.state.StaticElement" target="examples.chap04.draw00.state.Element"/>
+    <IsRelation name="is" source="examples.chap04.draw00.state.Ghost" target="examples.chap04.draw00.state.MobileElement"/>
+    <IsRelation name="is" source="examples.chap04.draw00.state.Space" target="examples.chap04.draw00.state.StaticElement"/>
+    <HasRelation name="direction" source="examples.chap04.draw00.state.MobileElement" target="examples.chap04.draw00.state.Direction" type="Default" sourceCardinality="0..1" targetCardinality=""/>
+    <HasRelation name="wallTypeId" source="examples.chap04.draw00.state.Wall" target="examples.chap04.draw00.state.WallTypeId" type="Default" sourceCardinality="0..1" targetCardinality=""/>
+  </ClassDiagramRelations>
+</ClassDiagram>

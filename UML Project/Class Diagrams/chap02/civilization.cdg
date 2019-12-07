@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="civilization" gettersGeneration="not public" settersGeneration="not public" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="City" package="examples.chap02.civilization" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="-1.0" yPosition="0.0" width="215" height="146">
+      <Fields>
+        <Field name="name" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="population" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="buildings" type="TreeSet&lt;String&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="tobuild" type="Deque&lt;String&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cities" package="examples.chap02.civilization" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="141.0" yPosition="186.0" width="287" height="145">
+      <Fields>
+        <Field name="cities" type="LinkedHashMap&lt;Location,City&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Location" name="location"/>
+          <Argument type="City" name="city"/>
+        </Method>
+        <Method name="get" returnType="City" visibility="public">
+          <Argument type="Location" name="location"/>
+        </Method>
+        <Method name="iterator" returnType="Iterator&lt;City&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Location" package="examples.chap02.civilization" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="358.0" yPosition="6.0" width="236" height="140">
+      <Fields>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="other"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Iterable&lt;City&gt;" package="" visibility="public" generation="disabled" xPosition="208.0" yPosition="375.0" width="170" height="56">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap02.civilization.Cities" target="Iterable&lt;City&gt;"/>
+    <HasRelation name="cities" source="examples.chap02.civilization.Cities" target="examples.chap02.civilization.Location" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap02.civilization.City" target="examples.chap02.civilization.Location" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cities" source="examples.chap02.civilization.Cities" target="examples.chap02.civilization.City" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

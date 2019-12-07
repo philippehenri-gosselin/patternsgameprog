@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="draw00_menu" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="GameMode" package="examples.chap04.draw00" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="227.0" yPosition="2.0" width="272" height="56">
+      <Fields>
+        <Field name="parent" type="Pacman" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gui" type="GUIFacade" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGameMode" returnType="void" visibility="public">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="init" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="handleInputs" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="MenuGameMode" package="examples.chap04.draw00.menu" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="158.0" yPosition="86.0" width="411" height="227">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="items" type="List&lt;String&gt;" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="selectedItem" type="int" visibility="protected" gettersGeneration="enabled" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+        <Method name="paintMenu" returnType="Dimension" visibility="private">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="boolean" name="computeSize"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainMenu" package="examples.chap04.draw00.menu" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="557.0" yPosition="351.0" width="191" height="74">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PlayPacmanMenu" package="examples.chap04.draw00.menu" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="361.0" yPosition="351.0" width="191" height="74">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SelectGhostMenu" package="examples.chap04.draw00.menu" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="184.0" yPosition="351.0" width="173" height="74">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PlayGhostMenu" package="examples.chap04.draw00.menu" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="8.0" yPosition="351.0" width="173" height="74">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap04.draw00.menu.PlayPacmanMenu" target="examples.chap04.draw00.menu.MenuGameMode"/>
+    <IsRelation name="is" source="examples.chap04.draw00.menu.MenuGameMode" target="examples.chap04.draw00.GameMode"/>
+    <IsRelation name="is" source="examples.chap04.draw00.menu.SelectGhostMenu" target="examples.chap04.draw00.menu.MenuGameMode"/>
+    <IsRelation name="is" source="examples.chap04.draw00.menu.MainMenu" target="examples.chap04.draw00.menu.MenuGameMode"/>
+    <IsRelation name="is" source="examples.chap04.draw00.menu.PlayGhostMenu" target="examples.chap04.draw00.menu.MenuGameMode"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

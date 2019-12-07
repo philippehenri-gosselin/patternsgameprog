@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="threads02_rules" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Rules" package="examples.chap06.threads02.rules" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="79.0" yPosition="3.0" width="385" height="174">
+      <Fields>
+        <Field name="state" type="State" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="commands" type="TreeMap&lt;Integer,Command&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="actions" type="Queue&lt;Queue&lt;Action&gt;&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addPassiveCommands" returnType="void" visibility="public"/>
+        <Method name="addCommand" returnType="void" visibility="public">
+          <Argument type="int" name="priority"/>
+          <Argument type="Command" name="command"/>
+        </Method>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="rollback" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Command" package="examples.chap06.threads02.rules" visibility="public" generation="disabled" xPosition="79.0" yPosition="300.0" width="377" height="85">
+      <Methods>
+        <Method name="execute" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Action&gt;" name="actions"/>
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="State" package="" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="-1.0" yPosition="221.0" width="187" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="Action" package="" visibility="public" generation="disabled" xPosition="371.0" yPosition="192.0" width="193" height="95">
+      <Methods>
+        <Method name="apply" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="undo" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="commands" source="examples.chap06.threads02.rules.Rules" target="examples.chap06.threads02.rules.Command" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation name="" source="Action" target="State" sourceCardinality="" targetCardinality=""/>
+    <HasRelation name="state" source="examples.chap06.threads02.rules.Rules" target="State" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="actions" source="examples.chap06.threads02.rules.Rules" target="Action" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation name="" source="examples.chap06.threads02.rules.Command" target="Action" sourceCardinality="" targetCardinality=""/>
+    <UseRelation name="" source="examples.chap06.threads02.rules.Command" target="State" sourceCardinality="" targetCardinality=""/>
+  </ClassDiagramRelations>
+</ClassDiagram>

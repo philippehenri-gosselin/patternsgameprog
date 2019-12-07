@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="stellaris" gettersGeneration="not public" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Planet" package="examples.chap02.stellaris" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="357.0" yPosition="394.0" width="170" height="108">
+      <Fields>
+        <Field name="name" type="String" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="System" package="examples.chap02.stellaris" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="14.0" yPosition="234.0" width="257" height="209">
+      <Fields>
+        <Field name="name" type="String" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="planets" type="ArrayList&lt;Planet&gt;" visibility="private" gettersGeneration="disabled" settersGeneration="disabled"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addPlanet" returnType="void" visibility="public">
+          <Argument type="Planet" name="planet"/>
+        </Method>
+        <Method name="getPlanet" returnType="Planet" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="findPlanet" returnType="Planet" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getPlanetCount" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Habitable" package="examples.chap02.stellaris" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="37.0" yPosition="479.0" width="234" height="90">
+      <Fields>
+        <Field name="buildings" type="ArrayList&lt;Building&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Gaseous" package="examples.chap02.stellaris" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="494.0" yPosition="521.0" width="196" height="75">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Building" package="examples.chap02.stellaris" visibility="public" gettersGeneration="auto" settersGeneration="not public" generation="auto" xPosition="26.0" yPosition="611.0" width="276" height="107">
+      <Fields>
+        <Field name="type" type="BuildingType" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="level" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="BuildingType" name="type"/>
+          <Argument type="int" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Enum name="BuildingType" package="examples.chap02.stellaris" visibility="public" generation="auto" xPosition="357.0" yPosition="618.0" width="171" height="92">
+      <Literals>
+        <Literal name="FACTORY"/>
+        <Literal name="POWERPLANT"/>
+      </Literals>
+    </Enum>
+    <Class name="Connection" package="examples.chap02.stellaris" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="322.0" yPosition="234.0" width="368" height="128">
+      <Fields>
+        <Field name="parsecs" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="system1" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="system2" type="int" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="parsecs"/>
+          <Argument type="int" name="system1"/>
+          <Argument type="int" name="system2"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Galaxy" package="examples.chap02.stellaris" visibility="public" gettersGeneration="disabled" settersGeneration="disabled" generation="auto" xPosition="93.0" yPosition="-2.0" width="502" height="209">
+      <Fields>
+        <Field name="systems" type="ArrayList&lt;System&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="connections" type="ArrayList&lt;Connection&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createSystem" returnType="System" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="connectSystems" returnType="Connection" visibility="public">
+          <Argument type="String" name="name1"/>
+          <Argument type="String" name="name2"/>
+          <Argument type="int" name="parsecs"/>
+        </Method>
+        <Method name="findSystem" returnType="int" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getSystem" returnType="System" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="findConnection" returnType="int" visibility="public">
+          <Argument type="int" name="index1"/>
+          <Argument type="int" name="index2"/>
+        </Method>
+        <Method name="getConnection" returnType="Connection" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="systems" source="examples.chap02.stellaris.Galaxy" target="examples.chap02.stellaris.System" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="ArrayList"/>
+    <HasRelation name="type" source="examples.chap02.stellaris.Building" target="examples.chap02.stellaris.BuildingType" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap02.stellaris.Gaseous" target="examples.chap02.stellaris.Planet"/>
+    <HasRelation name="buildings" source="examples.chap02.stellaris.Habitable" target="examples.chap02.stellaris.Building" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="connections" source="examples.chap02.stellaris.Galaxy" target="examples.chap02.stellaris.Connection" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap02.stellaris.Habitable" target="examples.chap02.stellaris.Planet"/>
+    <HasRelation name="planets" source="examples.chap02.stellaris.System" target="examples.chap02.stellaris.Planet" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

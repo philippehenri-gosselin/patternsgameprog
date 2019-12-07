@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="threads01_gui_awt" gettersGeneration="disabled" settersGeneration="disabled">
+  <ClassDiagramComponents>
+    <Interface name="GUIFacade" package="examples.chap06.threads01.gui" visibility="public" generation="disabled" xPosition="477.0" yPosition="454.0" width="170" height="56">
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="getKeyboard" returnType="Keyboard" visibility="public"/>
+        <Method name="getMouse" returnType="Mouse" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Keyboard" package="examples.chap06.threads01.gui" visibility="public" generation="disabled" xPosition="50.0" yPosition="530.0" width="170" height="56">
+      <Methods>
+        <Method name="isKeyPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="keyCode"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Mouse" package="examples.chap06.threads01.gui" visibility="public" generation="disabled" xPosition="343.0" yPosition="530.0" width="170" height="56">
+      <Methods>
+        <Method name="isButtonPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="button"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="AWTKeyboard" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="0.0" yPosition="614.0" width="271" height="222">
+      <Fields>
+        <Field name="keys" type="boolean[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="lastPressedKey" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="keyTyped" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="getLastPressedKey" returnType="int" visibility="public"/>
+        <Method name="consumeLastPressedKey" returnType="int" visibility="public"/>
+        <Method name="keyPressed" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyReleased" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="isKeyPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="keyCode"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AWTMouse" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="288.0" yPosition="614.0" width="281" height="312">
+      <Fields>
+        <Field name="buttons" type="boolean[]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mouseDragged" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseMoved" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseClicked" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseEntered" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseExited" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="isButtonPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="button"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AWTGUIFacade" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="364.0" yPosition="-1.0" width="396" height="416">
+      <Fields>
+        <Field name="window" type="AWTWindow" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="graphics" type="Graphics" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="fonts" type="AWTFonts" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="setClosingRequested" returnType="void" visibility="public">
+          <Argument type="boolean" name="closingRequested"/>
+        </Method>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="getKeyboard" returnType="Keyboard" visibility="public"/>
+        <Method name="getMouse" returnType="Mouse" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+        <Method name="drawLayer" returnType="void" visibility="public">
+          <Argument type="Layer" name="layer"/>
+        </Method>
+        <Method name="createImage" returnType="Image" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="drawImage" returnType="void" visibility="public">
+          <Argument type="Image" name="image"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="setTextSize" returnType="void" visibility="public">
+          <Argument type="int" name="size"/>
+        </Method>
+        <Method name="getTextMetrics" returnType="Dimension" visibility="public">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="drawText" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="KeyListener" package="java.awt.event" visibility="public" generation="disabled" xPosition="0.0" yPosition="954.0" width="271" height="147">
+      <Methods>
+        <Method name="keyTyped" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyPressed" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyReleased" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="isKeyPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="keyCode"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="MouseListener" package="java.awt.event" visibility="public" generation="disabled" xPosition="273.0" yPosition="954.0" width="311" height="147">
+      <Methods>
+        <Method name="mouseClicked" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mousePressed" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseReleased" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseEntered" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseExited" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="MouseMotionListener" package="java.awt.event" visibility="public" generation="disabled" xPosition="617.0" yPosition="954.0" width="274" height="113">
+      <Methods>
+        <Method name="mouseDragged" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+        <Method name="mouseMoved" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Image" package="examples.chap06.threads01.gui" visibility="public" generation="disabled" xPosition="680.0" yPosition="530.0" width="170" height="56">
+      <Methods>
+        <Method name="getWidth" returnType="int" visibility="public"/>
+        <Method name="getHeight" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="AWTImage" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="599.0" yPosition="614.0" width="311" height="162">
+      <Fields>
+        <Field name="image" type="BufferedImage" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getWidth" returnType="int" visibility="public"/>
+        <Method name="getHeight" returnType="int" visibility="public"/>
+        <Method name="loadImage" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="draw" returnType="void" visibility="public">
+          <Argument type="Graphics" name="graphics"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Layer" package="" visibility="public" generation="disabled" xPosition="1060.0" yPosition="530.0" width="170" height="56">
+      <Methods/>
+    </Interface>
+    <Class name="AWTLayer" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="937.0" yPosition="614.0" width="417" height="363">
+      <Fields>
+        <Field name="tileWidth" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="tileHeight" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="texture" type="BufferedImage" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="textureWidth" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="textureHeight" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="sprites" type="int[][]" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getTextureWidth" returnType="int" visibility="public"/>
+        <Method name="getTextureHeight" returnType="int" visibility="public"/>
+        <Method name="getSpriteLocation" returnType="Point" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="setTileSize" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="setTexture" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="setSpriteCount" returnType="void" visibility="public">
+          <Argument type="int" name="count"/>
+        </Method>
+        <Method name="setSpriteTexture" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="tileX"/>
+          <Argument type="int" name="tileY"/>
+        </Method>
+        <Method name="setSpriteLocation" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="screenX"/>
+          <Argument type="int" name="screenY"/>
+        </Method>
+        <Method name="draw" returnType="void" visibility="public">
+          <Argument type="Graphics" name="graphics"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AWTWindow" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="806.0" yPosition="29.0" width="395" height="271">
+      <Fields>
+        <Field name="closingRequested" type="boolean" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvas" type="Canvas" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvasWidth" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvasHeight" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="bs" type="BufferStrategy" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="createCanvas" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="setClosingRequested" returnType="void" visibility="public">
+          <Argument type="boolean" name="closingRequested"/>
+        </Method>
+        <Method name="createGraphics" returnType="Graphics" visibility="public"/>
+        <Method name="switchBuffers" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AWTFonts" package="examples.chap06.threads01.gui.awt" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="35.0" yPosition="317.0" width="310" height="125">
+      <Fields>
+        <Field name="fonts" type="Map&lt;Integer,Font&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getFont" returnType="Font" visibility="public">
+          <Argument type="Graphics" name="graphics"/>
+          <Argument type="int" name="size"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="" source="examples.chap06.threads01.gui.GUIFacade" target="examples.chap06.threads01.gui.Keyboard" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="window" source="examples.chap06.threads01.gui.awt.AWTGUIFacade" target="examples.chap06.threads01.gui.awt.AWTWindow" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap06.threads01.gui.GUIFacade" target="Layer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTKeyboard" target="examples.chap06.threads01.gui.Keyboard"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTLayer" target="Layer"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTMouse" target="java.awt.event.MouseMotionListener"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTKeyboard" target="java.awt.event.KeyListener"/>
+    <HasRelation name="fonts" source="examples.chap06.threads01.gui.awt.AWTGUIFacade" target="examples.chap06.threads01.gui.awt.AWTFonts" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTGUIFacade" target="examples.chap06.threads01.gui.GUIFacade"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTMouse" target="examples.chap06.threads01.gui.Mouse"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTImage" target="examples.chap06.threads01.gui.Image"/>
+    <UseRelation name="" source="examples.chap06.threads01.gui.GUIFacade" target="examples.chap06.threads01.gui.Image" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap06.threads01.gui.awt.AWTMouse" target="java.awt.event.MouseListener"/>
+    <UseRelation name="" source="examples.chap06.threads01.gui.GUIFacade" target="examples.chap06.threads01.gui.Mouse" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

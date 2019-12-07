@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ai05_state" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="State" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="16.0" yPosition="8.0" width="366" height="484">
+      <Methods>
+        <Method name="getEpoch" returnType="int" visibility="public"/>
+        <Method name="incEpoch" returnType="void" visibility="public"/>
+        <Method name="decEpoch" returnType="void" visibility="public"/>
+        <Method name="setEpoch" returnType="void" visibility="public">
+          <Argument type="int" name="epoch"/>
+        </Method>
+        <Method name="getEpochRate" returnType="int" visibility="public"/>
+        <Method name="getEpochDuration" returnType="long" visibility="public"/>
+        <Method name="setEpochRate" returnType="void" visibility="public">
+          <Argument type="int" name="epochRate"/>
+        </Method>
+        <Method name="getSuperDuration" returnType="int" visibility="public"/>
+        <Method name="setSuperDuration" returnType="void" visibility="public">
+          <Argument type="int" name="superDuration"/>
+        </Method>
+        <Method name="getGumCount" returnType="int" visibility="public"/>
+        <Method name="setGumCount" returnType="void" visibility="public">
+          <Argument type="int" name="gumCount"/>
+        </Method>
+        <Method name="getChars" returnType="Characters" visibility="public"/>
+        <Method name="setChars" returnType="void" visibility="public">
+          <Argument type="Characters" name="chars"/>
+        </Method>
+        <Method name="getWorld" returnType="World" visibility="public"/>
+        <Method name="setWorld" returnType="void" visibility="public">
+          <Argument type="World" name="world"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="int[][]" name="level"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="clone" returnType="State" visibility="public"/>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+        <Method name="unregisterObserver" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+        <Method name="notityStateChanged" returnType="void" visibility="public"/>
+        <Method name="notifyWorldElementChanged" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="notifyCharacterChanged" returnType="void" visibility="public">
+          <Argument type="int" name="charIndex"/>
+        </Method>
+        <Method name="save" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="load" returnType="MutableState" visibility="public" isStatic="true">
+          <Argument type="String" name="fileName"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Characters" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="437.0" yPosition="22.0" width="289" height="248">
+      <Methods>
+        <Method name="size" returnType="int" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="get" returnType="MobileElement" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="getPacman" returnType="Pacman" visibility="public"/>
+        <Method name="getGhost" returnType="Ghost" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="int[][]" name="level"/>
+        </Method>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="MobileElement" name="me"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="MobileElement" name="me"/>
+        </Method>
+        <Method name="iterator" returnType="CharactersIterator" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="clone" returnType="Characters" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="World" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="423.0" yPosition="337.0" width="303" height="233">
+      <Methods>
+        <Method name="getWidth" returnType="int" visibility="public"/>
+        <Method name="getHeight" returnType="int" visibility="public"/>
+        <Method name="get" returnType="StaticElement" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="Direction" name="d"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="StaticElement" name="e"/>
+        </Method>
+        <Method name="getFactory" returnType="ElementFactory" visibility="public"/>
+        <Method name="setFactory" returnType="void" visibility="public">
+          <Argument type="ElementFactory" name="factory"/>
+        </Method>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="int[][]" name="level"/>
+        </Method>
+        <Method name="iterator" returnType="WorldIterator" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="clone" returnType="World" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="WorldIterator" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="820.0" yPosition="371.0" width="175" height="165">
+      <Methods>
+        <Method name="getWorld" returnType="World" visibility="public"/>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="StaticElement" visibility="public"/>
+        <Method name="remove" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Iterator&lt;StaticElement&gt;" package="" visibility="public" generation="disabled" xPosition="744.0" yPosition="544.0" width="222" height="63">
+      <Methods/>
+    </Interface>
+    <Interface name="CharactersIterator" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="797.0" yPosition="40.0" width="220" height="148">
+      <Methods>
+        <Method name="getCharacters" returnType="Characters" visibility="public"/>
+        <Method name="getIndex" returnType="int" visibility="public"/>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="MobileElement" visibility="public"/>
+        <Method name="remove" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Iterator&lt;MobileElement&gt;" package="" visibility="public" generation="disabled" xPosition="822.0" yPosition="264.0" width="228" height="63">
+      <Methods/>
+    </Interface>
+    <Interface name="Iterable&lt;MobileElement&gt;" package="" visibility="public" generation="disabled" xPosition="547.0" yPosition="282.0" width="229" height="63">
+      <Methods/>
+    </Interface>
+    <Interface name="Iterable&lt;StaticElement&gt;" package="" visibility="public" generation="disabled" xPosition="347.0" yPosition="601.0" width="223" height="63">
+      <Methods/>
+    </Interface>
+    <Interface name="StateObserver" package="examples.chap05.ai05.state" visibility="public" generation="auto" xPosition="16.0" yPosition="524.0" width="377" height="114">
+      <Methods>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="examples.chap05.ai05.state.World" target="Iterable&lt;StaticElement&gt;"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.CharactersIterator" target="Iterator&lt;MobileElement&gt;"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.WorldIterator" target="Iterator&lt;StaticElement&gt;"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.State" target="examples.chap05.ai05.state.World" sourceCardinality="" targetCardinality="0..*"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.State" target="examples.chap05.ai05.state.StateObserver" sourceCardinality="" targetCardinality="0..*"/>
+    <IsRelation name="is" source="examples.chap05.ai05.state.Characters" target="Iterable&lt;MobileElement&gt;"/>
+    <UseRelation name="" source="examples.chap05.ai05.state.Characters" target="examples.chap05.ai05.state.CharactersIterator" sourceCardinality="" targetCardinality=""/>
+    <UseRelation name="" source="examples.chap05.ai05.state.World" target="examples.chap05.ai05.state.WorldIterator" sourceCardinality="" targetCardinality=""/>
+    <UseRelation name="" source="examples.chap05.ai05.state.State" target="examples.chap05.ai05.state.Characters" sourceCardinality="" targetCardinality="0..*"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

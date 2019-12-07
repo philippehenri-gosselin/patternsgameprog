@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="awt_facade02" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="GUIFacade" package="examples.chap03.awtfacade02" visibility="public" generation="auto" xPosition="125.0" yPosition="163.0" width="243" height="160">
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="AWTGUIFacade" package="examples.chap03.awtfacade02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="6.0" yPosition="393.0" width="248" height="195">
+      <Fields>
+        <Field name="window" type="AWTWindow" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="graphics" type="Graphics" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AWTWindow" package="examples.chap03.awtfacade02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="292.0" yPosition="377.0" width="235" height="227">
+      <Fields>
+        <Field name="closingRequested" type="boolean" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvas" type="Canvas" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="canvasWidth" type="int" visibility="private" gettersGeneration="not public" settersGeneration="auto"/>
+        <Field name="canvasHeight" type="int" visibility="private" gettersGeneration="not public" settersGeneration="auto"/>
+        <Field name="bs" type="BufferStrategy" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="createCanvas" returnType="void" visibility="public"/>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="createGraphics" returnType="Graphics" visibility="public"/>
+        <Method name="switchBuffers" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="examples.chap03.awtfacade02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="136.0" yPosition="3.0" width="221" height="123">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap03.awtfacade02.AWTGUIFacade" target="examples.chap03.awtfacade02.GUIFacade"/>
+    <HasRelation name="gui" source="examples.chap03.awtfacade02.Main" target="examples.chap03.awtfacade02.GUIFacade" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="window" source="examples.chap03.awtfacade02.AWTGUIFacade" target="examples.chap03.awtfacade02.AWTWindow" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

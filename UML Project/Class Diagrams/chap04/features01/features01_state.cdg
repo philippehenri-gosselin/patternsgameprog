@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="features01_state" gettersGeneration="not public" settersGeneration="not public" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="MobileElement" package="examples.chap04.features01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="6.0" yPosition="578.0" width="171" height="56">
+      <Fields>
+        <Field name="direction" type="Direction" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="speed" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="position" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="statusTime" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="x" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="y" type="int" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="StaticElement" package="examples.chap04.features01.state" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="408.0" yPosition="578.0" width="175" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Characters" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="disabled" generation="auto" xPosition="38.0" yPosition="390.0" width="333" height="165">
+      <Fields>
+        <Field name="chars" type="List&lt;MobileElement&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="int[][]" name="level"/>
+        </Method>
+        <Method name="get" returnType="List&lt;MobileElement&gt;" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="getPacman" returnType="Pacman" visibility="public"/>
+        <Method name="getGhost" returnType="Ghost" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="World" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="disabled" generation="auto" xPosition="437.0" yPosition="315.0" width="347" height="227">
+      <Fields>
+        <Field name="width" type="int" visibility="private" gettersGeneration="auto" settersGeneration="disabled"/>
+        <Field name="height" type="int" visibility="private" gettersGeneration="auto" settersGeneration="disabled"/>
+        <Field name="elements" type="StaticElement[][]" visibility="private" gettersGeneration="auto" settersGeneration="disabled"/>
+        <Field name="factory" type="ElementFactory" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public">
+          <Argument type="int[][]" name="level"/>
+        </Method>
+        <Method name="set" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="StaticElement" name="e"/>
+        </Method>
+        <Method name="get" returnType="StaticElement" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="Direction" name="d"/>
+        </Method>
+        <Method name="iterator" returnType="WorldIterator" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="State" package="examples.chap04.features01.state" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="6.0" yPosition="0.0" width="371" height="314">
+      <Fields>
+        <Field name="epoch" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="epochRate" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="chars" type="Characters" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="world" type="World" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gumCount" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="superDuration" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="observers" type="List&lt;StateObserver&gt;" visibility="private" gettersGeneration="disabled" settersGeneration="disabled"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEpochDuration" returnType="long" visibility="public"/>
+        <Method name="incEpoch" returnType="void" visibility="public"/>
+        <Method name="registerObserver" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+        <Method name="unregisterObserver" returnType="void" visibility="public">
+          <Argument type="StateObserver" name="observer"/>
+        </Method>
+        <Method name="notityStateChanged" returnType="void" visibility="public"/>
+        <Method name="notifyWorldElementChanged" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="notifyCharacterChanged" returnType="void" visibility="public">
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ElementFactory" package="examples.chap04.features01.state" visibility="public" gettersGeneration="disabled" settersGeneration="disabled" generation="disabled" xPosition="619.0" yPosition="578.0" width="175" height="39">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="List&lt;MobileElement&gt;" package="" visibility="public" generation="disabled" xPosition="190.0" yPosition="578.0" width="181" height="56">
+      <Methods/>
+    </Interface>
+    <Interface name="Iterable&lt;StaticElement&gt;" package="" visibility="public" generation="disabled" xPosition="561.0" yPosition="239.0" width="223" height="56">
+      <Methods/>
+    </Interface>
+    <Interface name="StateObserver" package="examples.chap04.features01.state" visibility="public" generation="auto" xPosition="523.0" yPosition="67.0" width="378" height="116">
+      <Methods>
+        <Method name="stateChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+        </Method>
+        <Method name="worldElementChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="characterChanged" returnType="void" visibility="public">
+          <Argument type="State" name="state"/>
+          <Argument type="int" name="charIndex"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="chars" source="examples.chap04.features01.state.Characters" target="examples.chap04.features01.state.MobileElement" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="chars" source="examples.chap04.features01.state.State" target="examples.chap04.features01.state.Characters" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="observers" source="examples.chap04.features01.state.State" target="examples.chap04.features01.state.StateObserver" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.features01.state.Characters" target="List&lt;MobileElement&gt;"/>
+    <HasRelation name="elements" source="examples.chap04.features01.state.World" target="examples.chap04.features01.state.StaticElement" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="factory" source="examples.chap04.features01.state.World" target="examples.chap04.features01.state.ElementFactory" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap04.features01.state.World" target="Iterable&lt;StaticElement&gt;"/>
+    <HasRelation name="world" source="examples.chap04.features01.state.State" target="examples.chap04.features01.state.World" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

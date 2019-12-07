@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ai06_ai_minimax" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Task" package="examples.chap05.ai06.ai.tree" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="637.0" yPosition="88.0" width="249" height="106">
+      <Fields>
+        <Field name="node" type="Node" visibility="protected" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="Queue&lt;Task&gt;" name="todo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MaxTask" package="examples.chap05.ai06.ai.tree.minimax" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="298.0" yPosition="323.0" width="238" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Task&gt;" name="todo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MinTask" package="examples.chap05.ai06.ai.tree.minimax" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="585.0" yPosition="323.0" width="238" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Task&gt;" name="todo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ExploreMaxTask" package="examples.chap05.ai06.ai.tree.minimax" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="303.0" yPosition="429.0" width="238" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Task&gt;" name="todo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ExploreMinTask" package="examples.chap05.ai06.ai.tree.minimax" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="608.0" yPosition="421.0" width="238" height="76">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public">
+          <Argument type="Queue&lt;Task&gt;" name="todo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Minimax" package="examples.chap05.ai06.ai.tree.minimax" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="372.0" yPosition="114.0" width="225" height="95">
+      <Fields>
+        <Field name="todo" type="Queue&lt;Task&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="List&lt;Node&gt;" visibility="public">
+          <Argument type="Node" name="root"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Node" package="examples.chap05.ai06.ai.tree" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="170.0" yPosition="19.0" width="198" height="295">
+      <Fields>
+        <Field name="parent" type="Node" visibility="protected" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="depth" type="int" visibility="protected" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="children" type="Node[]" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="hasValue" type="boolean" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="value" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="hasValue" returnType="boolean" visibility="public"/>
+        <Method name="getValue" returnType="int" visibility="public"/>
+        <Method name="setValue" returnType="void" visibility="public">
+          <Argument type="int" name="value"/>
+        </Method>
+        <Method name="getChildCount" returnType="int" visibility="public"/>
+        <Method name="getChild" returnType="Node" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="iterator" returnType="NodeIterator" visibility="public"/>
+        <Method name="createChildren" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="updateState" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="rollbackState" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="NodeIterator" package="examples.chap05.ai06.ai.tree" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="12.0" yPosition="289.0" width="170" height="144">
+      <Fields>
+        <Field name="node" type="Node" visibility="private" isFinal="true" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="i" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="hasNext" returnType="boolean" visibility="public"/>
+        <Method name="next" returnType="Node" visibility="public"/>
+        <Method name="remove" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Iterable&lt;Node&gt;" package="" visibility="public" generation="disabled" xPosition="1.0" yPosition="88.0" width="170" height="56">
+      <Methods/>
+    </Interface>
+    <Interface name="Iterator&lt;Node&gt;" package="" visibility="public" generation="disabled" xPosition="12.0" yPosition="493.0" width="170" height="56">
+      <Methods/>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai06.ai.tree.Node" target="Iterable&lt;Node&gt;"/>
+    <HasRelation name="todo" source="examples.chap05.ai06.ai.tree.minimax.Minimax" target="examples.chap05.ai06.ai.tree.Task" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="examples.chap05.ai06.ai.tree.minimax.MaxTask" target="examples.chap05.ai06.ai.tree.Task"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="examples.chap05.ai06.ai.tree.NodeIterator" target="Iterator&lt;Node&gt;"/>
+    <IsRelation name="is" source="examples.chap05.ai06.ai.tree.minimax.MinTask" target="examples.chap05.ai06.ai.tree.Task"/>
+    <UseRelation name="" source="examples.chap05.ai06.ai.tree.Node" target="examples.chap05.ai06.ai.tree.NodeIterator" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap05.ai06.ai.tree.minimax.ExploreMaxTask" target="examples.chap05.ai06.ai.tree.Task"/>
+    <UseRelation name="" source="examples.chap05.ai06.ai.tree.minimax.Minimax" target="examples.chap05.ai06.ai.tree.Node" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="examples.chap05.ai06.ai.tree.minimax.ExploreMinTask" target="examples.chap05.ai06.ai.tree.Task"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

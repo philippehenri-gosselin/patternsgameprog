@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="gamemodes01_gui" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Interface name="GUIFacade" package="examples.chap03.gamemodes01.gui" visibility="public" generation="auto" xPosition="0.0" yPosition="3.0" width="398" height="287">
+      <Methods>
+        <Method name="createWindow" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="isClosingRequested" returnType="boolean" visibility="public"/>
+        <Method name="setClosingRequested" returnType="void" visibility="public">
+          <Argument type="boolean" name="closingRequested"/>
+        </Method>
+        <Method name="dispose" returnType="void" visibility="public"/>
+        <Method name="getKeyboard" returnType="Keyboard" visibility="public"/>
+        <Method name="getMouse" returnType="Mouse" visibility="public"/>
+        <Method name="beginPaint" returnType="boolean" visibility="public"/>
+        <Method name="endPaint" returnType="void" visibility="public"/>
+        <Method name="clearBackground" returnType="void" visibility="public"/>
+        <Method name="createLayer" returnType="Layer" visibility="public"/>
+        <Method name="drawLayer" returnType="void" visibility="public">
+          <Argument type="Layer" name="layer"/>
+        </Method>
+        <Method name="createImage" returnType="Image" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="drawImage" returnType="void" visibility="public">
+          <Argument type="Image" name="image"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Keyboard" package="examples.chap03.gamemodes01.gui" visibility="public" generation="auto" xPosition="0.0" yPosition="365.0" width="275" height="113">
+      <Methods>
+        <Method name="isKeyPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="keyCode"/>
+        </Method>
+        <Method name="getLastPressedKey" returnType="int" visibility="public"/>
+        <Method name="consumeLastPressedKey" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Mouse" package="examples.chap03.gamemodes01.gui" visibility="public" generation="auto" xPosition="318.0" yPosition="365.0" width="281" height="113">
+      <Methods>
+        <Method name="isButtonPressed" returnType="boolean" visibility="public">
+          <Argument type="int" name="button"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="getY" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Image" package="examples.chap03.gamemodes01.gui" visibility="public" generation="auto" xPosition="429.0" yPosition="242.0" width="170" height="94">
+      <Methods>
+        <Method name="getWidth" returnType="int" visibility="public"/>
+        <Method name="getHeight" returnType="int" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Layer" package="examples.chap03.gamemodes01.gui" visibility="public" generation="auto" xPosition="429.0" yPosition="3.0" width="420" height="215">
+      <Methods>
+        <Method name="getTileWidth" returnType="int" visibility="public"/>
+        <Method name="getTileHeight" returnType="int" visibility="public"/>
+        <Method name="getTextureWidth" returnType="int" visibility="public"/>
+        <Method name="getTextureHeight" returnType="int" visibility="public"/>
+        <Method name="setTileSize" returnType="void" visibility="public">
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+        </Method>
+        <Method name="setTexture" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="setSpriteCount" returnType="void" visibility="public">
+          <Argument type="int" name="count"/>
+        </Method>
+        <Method name="setSpriteTexture" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="tileX"/>
+          <Argument type="int" name="tileY"/>
+        </Method>
+        <Method name="setSpriteLocation" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+          <Argument type="int" name="screenX"/>
+          <Argument type="int" name="screenY"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="" source="examples.chap03.gamemodes01.gui.GUIFacade" target="examples.chap03.gamemodes01.gui.Mouse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.gamemodes01.gui.GUIFacade" target="examples.chap03.gamemodes01.gui.Layer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.gamemodes01.gui.GUIFacade" target="examples.chap03.gamemodes01.gui.Image" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="examples.chap03.gamemodes01.gui.GUIFacade" target="examples.chap03.gamemodes01.gui.Keyboard" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

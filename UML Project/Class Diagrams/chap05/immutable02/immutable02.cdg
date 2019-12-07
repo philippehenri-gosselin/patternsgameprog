@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="immutable02" gettersGeneration="disabled" settersGeneration="disabled" showMembers="true" showAddMember="false">
+  <ClassDiagramComponents>
+    <Class name="Main" package="examples.chap05.immutable02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="9.0" yPosition="399.0" width="288" height="176">
+      <Fields>
+        <Field name="gui" type="GUIFacade" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="currentMode" type="GameMode" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gameModes" type="LinkedList&lt;GameMode&gt;" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gameBuilder" type="GameBuilder" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGUI" returnType="void" visibility="public">
+          <Argument type="GUIFacade" name="gui"/>
+        </Method>
+        <Method name="setGameMode" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="clearGameModes" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameMode" package="examples.chap05.immutable02" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="401.0" yPosition="293.0" width="298" height="248">
+      <Fields>
+        <Field name="parent" type="Main" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="gui" type="GUIFacade" visibility="protected" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setGameMode" returnType="void" visibility="public">
+          <Argument type="GameMode" name="mode"/>
+        </Method>
+        <Method name="setPreviousGameMode" returnType="void" visibility="public"/>
+        <Method name="clearGameModes" returnType="void" visibility="public"/>
+        <Method name="getGameBuilder" returnType="GameBuilder" visibility="public"/>
+        <Method name="init" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="handleInputs" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PlayGameMode" package="examples.chap05.immutable02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="64.0" yPosition="13.0" width="196" height="192">
+      <Fields>
+        <Field name="state" type="State" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="renderer" type="Renderer" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="rules" type="Rules" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="initCommand" type="Command" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WelcomeGameMode" package="examples.chap05.immutable02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="363.0" yPosition="13.0" width="195" height="143">
+      <Fields>
+        <Field name="titleImage" type="Image" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MenuGameMode" package="" visibility="public" isAbstract="true" gettersGeneration="auto" settersGeneration="auto" generation="disabled" xPosition="645.0" yPosition="205.0" width="179" height="56">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GameOverMode" package="examples.chap05.immutable02" visibility="public" gettersGeneration="auto" settersGeneration="auto" generation="auto" xPosition="570.0" yPosition="13.0" width="206" height="148">
+      <Fields>
+        <Field name="msg" type="String" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="handleInputs" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="long" name="time"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GameBuilder" package="examples.chap05.immutable02" visibility="public" gettersGeneration="enabled" settersGeneration="enabled" generation="auto" xPosition="27.0" yPosition="249.0" width="233" height="110">
+      <Fields>
+        <Field name="charIndex" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+        <Field name="difficulty" type="int" visibility="private" gettersGeneration="auto" settersGeneration="auto"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createGame" returnType="PlayGameMode" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="gameBuilder" source="examples.chap05.immutable02.Main" target="examples.chap05.immutable02.GameBuilder" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="examples.chap05.immutable02.GameOverMode" target="examples.chap05.immutable02.GameMode"/>
+    <IsRelation name="is" source="examples.chap05.immutable02.WelcomeGameMode" target="examples.chap05.immutable02.GameMode"/>
+    <HasRelation name="currentMode" source="examples.chap05.immutable02.Main" target="examples.chap05.immutable02.GameMode" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="&lt;&lt;create&gt;&gt;" source="examples.chap05.immutable02.GameBuilder" target="examples.chap05.immutable02.PlayGameMode" sourceCardinality="" targetCardinality=""/>
+    <IsRelation name="is" source="MenuGameMode" target="examples.chap05.immutable02.GameMode"/>
+    <IsRelation name="is" source="examples.chap05.immutable02.PlayGameMode" target="examples.chap05.immutable02.GameMode"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
