@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="9" height="6" tilewidth="24" tileheight="24" nextobjectid="1">
+ <tileset firstgid="1" name="grid_tiles" tilewidth="24" tileheight="24" tilecount="100">
+  <image source="grid_tiles.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="9" height="6">
+  <data encoding="csv">
+15,11,11,11,11,11,11,11,16,
+12,5,3,3,3,3,3,3,12,
+12,3,15,11,11,11,16,3,12,
+14,3,13,11,11,11,14,3,13,
+21,3,3,3,25,24,22,23,3,
+11,11,11,11,11,11,11,11,11
+</data>
+ </layer>
+</map>
