@@ -19,5 +19,5 @@ To test network gaming, run the Server class, and then run up to 5 clients.
 
 This is an EasyUML project you can open using Netbeans 8 or higher and an improved version of EasyUML (the standard one should also works). 
 
-This improved EasyUML plugin is available in another github repository: [](https://github.com/philippehenri-gosselin/easyuml/releases).
+This improved EasyUML plugin is available in another github repository: [https://github.com/philippehenri-gosselin/easyuml/releases](https://github.com/philippehenri-gosselin/easyuml/releases).
 
