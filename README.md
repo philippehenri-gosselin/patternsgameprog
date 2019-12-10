@@ -6,7 +6,7 @@ Available on [Amazon](https://amzn.to/33aoagw)
 ## Java Project
 
 You can open the Java project with Netbeans 8 or higher. 
-OpenGL library is configured for Windows. For other OS, remove the .jar in the project and add the goos ones in the "lib" folder.
+OpenGL library is configured for Windows. For other OS, remove the .jar in the project and add the good ones in the "lib" folder.
 
 You can also run the code using most IDE creating a project from existing sources (let the IDE choose how to compile, don't use the Netbeans project files). 
 To use the OpenGL features, you must add the .jar files in the "lib" folder corresponding to your OS.
